@@ -18,7 +18,7 @@ public class PlayerShooter : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            gun.Fire();
+            //gun.Fire();
         }
         else if (Input.GetButtonDown("Reload"))
         {
