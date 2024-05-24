@@ -22,7 +22,7 @@ public class PlayerShooter : MonoBehaviour
         }
         else if (Input.GetButtonDown("Reload"))
         {
-            gun.Reload();
+            //gun.Reload();
         }
     }
 }
