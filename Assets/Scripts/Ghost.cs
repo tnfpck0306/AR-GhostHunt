@@ -11,8 +11,9 @@ public class Ghost : LivingEntity
 
     public float damage = 20f; // 공격력
     public float timeBetAttack = 0.5f; // 공격 간격
-    public float speed = 0.2f;
+    public float speed = 4f;
     private float lastAttackTime; // 마지막 공격 시점
+    public float updateInterval = 0.04f;
 
     private bool hasTarget
     {
@@ -54,7 +55,7 @@ public class Ghost : LivingEntity
                 Vector3 direction = targetEntity.transform.position - transform.position;
                 direction.Normalize();
 
-                //transform.position = direction * speed * Time.deltaTime;
+                transform.position += direction * speed * Time.deltaTime;
             }
 
             else
@@ -63,7 +64,7 @@ public class Ghost : LivingEntity
 
                 // 20유닛의 반지름을 가진 가상의 구를 그렸을 때 구와 겹치는 모든 콜라이더를 가져옴
                 // 단, WhatIsTarget 레이어를 가진 콜라이더만 가져오도록 필터링
-                Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, WhatISTarget);
+                Collider[] colliders = Physics.OverlapSphere(transform.position, 30f, WhatISTarget);
 
                 // 모든 콜라이더를 순회하면서 살아 있는 LivingEntity 찾기
                 for (int i = 0; i < colliders.Length; i++)
@@ -81,7 +82,7 @@ public class Ghost : LivingEntity
                     }
                 }
             }
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(updateInterval);
         }
     }
 
