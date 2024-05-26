@@ -51,7 +51,10 @@ public class Ghost : LivingEntity
         {
             if(hasTarget)
             {
-                // 추적 대상이 존재한다면 이동
+                // 추적 대상이 존재한다면 대상을 바라보고
+                transform.LookAt(targetEntity.transform);
+
+                // 이동
                 Vector3 direction = targetEntity.transform.position - transform.position;
                 direction.Normalize();
 
