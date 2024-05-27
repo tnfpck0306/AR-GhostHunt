@@ -6,23 +6,19 @@ using UnityEngine.InputSystem;
 public class PlayerShooter : MonoBehaviour
 {
     public Gun gun;
-    private PlayerInput playerInput;
-    private Animator playerAnimator;
 
-    void Start()
+    private void Update()
     {
-        
+        // ³²Àº Åº¾Ë UI °»½Å
+        UpdateUI();
     }
 
-    void Update()
+    // Åº¾Ë UI °»½Å
+    private void UpdateUI()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(UIManager.instance != null)
         {
-            //gun.Fire();
-        }
-        else if (Input.GetButtonDown("Reload"))
-        {
-            //gun.Reload();
+            UIManager.instance.UpdateAmmoText(gun.magAmmo, gun.ammoRemain);
         }
     }
 }
