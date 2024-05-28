@@ -39,7 +39,6 @@ public class Gun : MonoBehaviour
 
         // 사용할 렌더러 점을 두 개로 변경
         bulletLineRenderer.positionCount = 2;
-        // 라인 렌더러 비활성화
         bulletLineRenderer.enabled = false;
     }
 
