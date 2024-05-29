@@ -64,7 +64,7 @@ public class Ghost : LivingEntity
             {
                 // 추적 대상이 없으면 중지
 
-                // 20유닛의 반지름을 가진 가상의 구를 그렸을 때 구와 겹치는 모든 콜라이더를 가져옴
+                // 30유닛의 반지름을 가진 가상의 구를 그렸을 때 구와 겹치는 모든 콜라이더를 가져옴
                 // 단, WhatIsTarget 레이어를 가진 콜라이더만 가져오도록 필터링
                 Collider[] colliders = Physics.OverlapSphere(transform.position, 30f, WhatISTarget);
 

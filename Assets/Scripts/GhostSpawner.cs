@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-// 주기적으로 유령 생성
+// 주기적으로 유령 생성 및 사망 상호작용
 public class GhostSpawner : MonoBehaviour
 {
     public Ghost ghostPrefab; // 유령 프리팹
