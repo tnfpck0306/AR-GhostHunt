@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,5 +29,29 @@ public class PlayerHealth : LivingEntity
         base.OnDamage(damage, hitPoint, hitDirection);
         // 갱신된 체력을 체력 슬라이더에 반영
         healthSlider.value = health;
+    }
+
+    // HealPack으로 회복시 슬라이더 갱신
+    public override void Heal(float heal)
+    {
+        base.Heal(heal);
+
+        healthSlider.value = health;
+    }
+
+    // 아이템과 충돌 시, 아이템 사용
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!dead)
+        {
+            // 충돌한 오브젝트로부터 IItem 컴포넌트 가져오기
+            IItem item = other.GetComponent<IItem>();
+
+            if(item != null)
+            {
+                item.Use(gameObject);
+            }
+
+        }
     }
 }

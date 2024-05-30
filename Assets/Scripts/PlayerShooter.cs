@@ -23,7 +23,14 @@ public class PlayerShooter : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Move();
         Rotate();
+    }
+
+    private void Move()
+    {
+        Vector3 moveDistance = Input.GetAxis("Vertical") * transform.forward * 2f * Time.deltaTime;
+        playerRigidbody.MovePosition(playerRigidbody.position + moveDistance);
     }
 
     private void Rotate()

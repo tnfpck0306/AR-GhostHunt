@@ -1876,10 +1876,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 4485331744295786719, guid: 6958c8c465966524bb21a41e6fd417d0, type: 3}
+  - {fileID: 7144545475101422083, guid: 90b2f4711ef272949ae6be1ea16c9a3e, type: 3}
   playerTransform: {fileID: 1497168334}
   maxDistance: 3
-  timeBetSpawnMax: 5
+  timeBetSpawnMax: 10
   timeBetSpawnMin: 2
+  destroyTime: 10
 --- !u!1 &1760157622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,6 +2466,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 217392676}
+    - target: {fileID: 7581523138498820455, guid: f465b46b63f72cb45a776e815880301d, type: 3}
+      propertyPath: startingHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7928113496039795524, guid: f465b46b63f72cb45a776e815880301d, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2471,6 +2477,10 @@ PrefabInstance:
     - target: {fileID: 7968292788506237455, guid: f465b46b63f72cb45a776e815880301d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397096403016362484, guid: f465b46b63f72cb45a776e815880301d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9091182295388686989, guid: f465b46b63f72cb45a776e815880301d, type: 3}
       propertyPath: m_RootOrder

@@ -246,7 +246,7 @@ MonoBehaviour:
     m_Bits: 512
   damage: 20
   timeBetAttack: 0.5
-  speed: 2
+  speed: 1
   updateInterval: 0.05
 --- !u!1 &4140462365243128087
 GameObject:

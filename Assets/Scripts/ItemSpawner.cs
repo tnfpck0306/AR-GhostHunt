@@ -17,6 +17,7 @@ public class ItemSpawner : MonoBehaviour
 
     private float lastSpawnTime; // 마지막 생성 시간
 
+    public float destroyTime = 10f; // 아이템 존재 시간
     private void Start()
     {
         // 생성 간격
@@ -45,7 +46,7 @@ public class ItemSpawner : MonoBehaviour
         // 생성 위치
         Vector3 spawnPosition = playerTransform.position;
         spawnPosition.x += distanceX;
-        spawnPosition.y -= 1f;
+        spawnPosition.y -= 0.5f;
         spawnPosition.z += distanceZ;
 
         // 아이템 선택 후 생성
@@ -58,6 +59,6 @@ public class ItemSpawner : MonoBehaviour
         distanceZ = Random.Range(-maxDistance, maxDistance);
 
         // 시간 후 아이템 파괴
-        Destroy(item, 5f);
+        Destroy(item, destroyTime);
     }
 }
