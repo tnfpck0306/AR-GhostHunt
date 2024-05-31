@@ -26,6 +26,9 @@ public class UIManager : MonoBehaviour
     public Text killText; // 킬 수 표시용 텍스트
     public GameObject gameoverUI; // 게임오버 시 활성화할 UI
 
+    public GameObject mainMenuUI; // 메인메뉴 UI
+    public bool startMenu = true;
+
     // 탄알 텍스트 갱신
     public void UpdateAmmoText(int magAmmo, int remainAmmo)
     {
@@ -42,6 +45,13 @@ public class UIManager : MonoBehaviour
     public void SetActiveGameoverUI(bool active)
     {
         gameoverUI.SetActive(active);
+    }
+
+    // 메인메뉴 UI 비활성화
+    public void GameStart()
+    {
+        startMenu = false;
+        mainMenuUI.SetActive(startMenu);
     }
 
     // 게임 재시작

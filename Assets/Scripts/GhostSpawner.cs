@@ -15,8 +15,14 @@ public class GhostSpawner : MonoBehaviour
 
     private void Update()
     {
+        // 메인메뉴 화면에서는 생성하지 않음
+        if (UIManager.instance.startMenu)
+        {
+            return;
+        }
+
         // 게임오버 상태에서는 생성하지 않음
-        if(GameManager.instance != null && GameManager.instance.isGameOver)
+        if (GameManager.instance != null && GameManager.instance.isGameOver)
         {
             return;
         }
