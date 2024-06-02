@@ -134,7 +134,7 @@ Transform:
   - {fileID: 1234246914746022046}
   - {fileID: 1415186707971099134}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6975852008272316656
 Animator:
@@ -206,7 +206,7 @@ CapsuleCollider:
   m_Radius: 0.15
   m_Height: 0.9
   m_Direction: 1
-  m_Center: {x: -0.0075883865, y: 0.33836842, z: 0.00768137}
+  m_Center: {x: -0.0075883865, y: 0.33333, z: 0.00768137}
 --- !u!65 &6440880894890574897
 BoxCollider:
   m_ObjectHideFlags: 0
