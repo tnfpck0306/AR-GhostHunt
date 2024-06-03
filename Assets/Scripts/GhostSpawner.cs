@@ -27,7 +27,7 @@ public class GhostSpawner : MonoBehaviour
             return;
         }
 
-        if(ghosts.Count <= 1)
+        if(ghosts.Count < 1)
         {
             CreateGhost();
         }

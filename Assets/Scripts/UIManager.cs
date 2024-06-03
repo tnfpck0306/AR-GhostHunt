@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
 
     public Text ammoText; // 탄알 표시용 텍스트
     public Text killText; // 킬 수 표시용 텍스트
+    public Text highScoreText; // 최고 점수 표시용 텍스트
     public GameObject gameoverUI; // 게임오버 시 활성화할 UI
 
     public GameObject mainMenuUI; // 메인메뉴 UI
@@ -44,6 +45,10 @@ public class UIManager : MonoBehaviour
     // 게임오버 UI 활성화
     public void SetActiveGameoverUI(bool active)
     {
+        int highScore = GameManager.instance.Get_HighScore();
+        print(highScore);
+        highScoreText.text = "High Score : " + highScore;
+
         gameoverUI.SetActive(active);
     }
 

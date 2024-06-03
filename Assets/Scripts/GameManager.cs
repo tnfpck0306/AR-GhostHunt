@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 // 점수와 게임오버 여부를 관리하는 게임 매니저
@@ -47,10 +48,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    string highScoreKey = "HighScore";
+    public int Get_HighScore()
+    {
+        int highScore = PlayerPrefs.GetInt(highScoreKey);
+        return highScore;
+    }
+    public void Set_HightScore(int cur_score)
+    {
+        if (cur_score > Get_HighScore())
+        {
+            PlayerPrefs.SetInt(highScoreKey, cur_score);
+        }
+    }
+
     // 게임오버 처리
     public void EndGame()
     {
         isGameOver = true;
+        Set_HightScore(kill);
 
         UIManager.instance.SetActiveGameoverUI(true);
     }
