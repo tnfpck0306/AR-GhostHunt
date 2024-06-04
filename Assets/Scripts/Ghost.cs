@@ -10,7 +10,7 @@ public class Ghost : LivingEntity
 
     public float damage = 20f; // 공격력
     public float timeBetAttack = 0.5f; // 공격 간격
-    public float speed = 4f;
+    public float speed; // 속도
     private float lastAttackTime; // 마지막 공격 시점
     public float updateInterval = 0.04f;
 
@@ -99,12 +99,6 @@ public class Ghost : LivingEntity
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
         base.Die();
 
-        // 다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
-        Collider[] ghostColliders = GetComponent<Collider[]>();
-        for (int i = 0; i < ghostColliders.Length; i++)
-        {
-            ghostColliders[i].enabled = false;
-        }
     }
 
     private void OnTriggerStay(Collider other)

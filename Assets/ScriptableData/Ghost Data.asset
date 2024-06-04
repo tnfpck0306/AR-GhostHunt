@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   damge: 20
-  speed: 4
+  speed: 1

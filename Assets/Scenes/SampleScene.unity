@@ -688,6 +688,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510836041}
   m_CullTransparentMesh: 1
+--- !u!4 &667716212 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3151022382477233586, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +787,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &775480698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7679425612410040673, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &832750428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3748629404437085862, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
@@ -2032,6 +2042,9 @@ MonoBehaviour:
   ghostData: {fileID: 11400000, guid: ed8644da279e08b408134092cc653c68, type: 2}
   spawnPoints:
   - {fileID: 8823339923595815400}
+  - {fileID: 2103494719}
+  - {fileID: 667716212}
+  - {fileID: 775480698}
 --- !u!4 &1705623397
 Transform:
   m_ObjectHideFlags: 0
@@ -2702,6 +2715,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007102398}
   m_CullTransparentMesh: 1
+--- !u!4 &2103494719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3930981479990889657, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &748796570594914923
 GameObject:
   m_ObjectHideFlags: 0
