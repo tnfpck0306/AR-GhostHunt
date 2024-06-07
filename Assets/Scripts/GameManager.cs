@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private static GameManager m_instance;
 
-    private int kill = 0;
+    public int kill = 0;
     public bool isGameOver { get; private set; }
 
     private void Awake()

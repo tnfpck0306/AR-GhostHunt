@@ -42,6 +42,9 @@ public class Ghost : LivingEntity
     private void Start()
     {
         StartCoroutine(UpdatePath());
+
+        // 킬 수 마다 속도 증가
+        speed = GameManager.instance.kill * 0.1f + speed;
     }
 
     private IEnumerator UpdatePath()
