@@ -46,7 +46,7 @@ public class ItemSpawner : MonoBehaviour
         // 생성 위치
         Vector3 spawnPosition = playerTransform.position;
         spawnPosition.x += distanceX;
-        spawnPosition.y -= 0.5f;
+        spawnPosition.y -= 1.5f;
         spawnPosition.z += distanceZ;
 
         // 아이템 선택 후 생성
