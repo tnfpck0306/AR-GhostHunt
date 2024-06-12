@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,10 @@ public class Ghost : LivingEntity
     public LayerMask WhatISTarget; // 추적 대상 레이어
 
     private LivingEntity targetEntity; // 추적 대상
+    public event Action onCollison;
 
     public float damage = 20f; // 공격력
-    public float timeBetAttack = 0.5f; // 공격 간격
     public float speed; // 속도
-    private float lastAttackTime; // 마지막 공격 시점
     public float updateInterval = 0.04f;
 
     private bool hasTarget
@@ -106,9 +106,8 @@ public class Ghost : LivingEntity
 
     private void OnTriggerStay(Collider other)
     {
-        // 자신이 사망하지 않았으며,
-        // 최근 공격 시점에서 timeBetAttack 이상 시간이 지났다면 공격 가능
-        if(!dead && Time.time >= lastAttackTime + timeBetAttack)
+        // 자신이 사망하지 않았으면,
+        if(!dead)
         {
             // 상대방의 LivingEntity 타입 가져오기 시도
             LivingEntity attackTarget = other.GetComponent<LivingEntity>();
@@ -116,8 +115,6 @@ public class Ghost : LivingEntity
             // 상대방의 LivingEntity가 자신의 추적 대상이라면 공격
             if(attackTarget != null && attackTarget == targetEntity)
             {
-                // 최근 공격 시간 갱신
-                lastAttackTime = Time.time;
 
                 // 상대방의 피격 위치와 피격 방향을 근삿값으로 계산
                 Vector3 hitPoint = other.ClosestPoint(transform.position);
@@ -125,6 +122,9 @@ public class Ghost : LivingEntity
 
                 // 공격 실행
                 attackTarget.OnDamage(damage, hitPoint, hitNormal);
+
+                onCollison();
+
             }
         }
     }

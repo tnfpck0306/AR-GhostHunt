@@ -25,8 +25,9 @@ public class UIManager : MonoBehaviour
     public Text ammoText; // 탄알 표시용 텍스트
     public Text killText; // 킬 수 표시용 텍스트
     public Text highScoreText; // 최고 점수 표시용 텍스트
-    public GameObject gameoverUI; // 게임오버 시 활성화할 UI
 
+    public GameObject collisonEffect; // 충돌시 효과 UI
+    public GameObject gameoverUI; // 게임오버 시 활성화할 UI
     public GameObject mainMenuUI; // 메인메뉴 UI
     public bool startMenu = true;
 
@@ -40,6 +41,20 @@ public class UIManager : MonoBehaviour
     public void UpdateKillText(int newKill)
     {
         killText.text = "Kill : " + newKill;
+    }
+
+    public void CollisionEffect()
+    {
+        StartCoroutine(CollisonEffect_Coroutine());
+    }
+
+    // 충돌시 짧은 시간 UI 활성화
+    public IEnumerator CollisonEffect_Coroutine()
+    {
+        collisonEffect.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        collisonEffect.SetActive(false);
+
     }
     
     // 게임오버 UI 활성화

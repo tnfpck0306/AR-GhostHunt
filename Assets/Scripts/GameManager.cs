@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int kill = 0;
     public bool isGameOver { get; private set; }
 
+    string highScoreKey = "HighScore"; // PlayerPrefs에 사용할 최고기록 키
+
     private void Awake()
     {
         if(instance != this)
@@ -48,12 +50,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    string highScoreKey = "HighScore";
+    // PlayerPrefs에서 최고 점수 불러오기
     public int Get_HighScore()
     {
         int highScore = PlayerPrefs.GetInt(highScoreKey);
         return highScore;
     }
+
+    // PlayerPrefs에 최고 점수 갱신
     public void Set_HightScore(int cur_score)
     {
         if (cur_score > Get_HighScore())
