@@ -50,7 +50,7 @@ public class GhostSpawner : MonoBehaviour
         ghost.onDeath += () => Destroy(ghost.gameObject, 0.2f);
         ghost.onDeath += () => GameManager.instance.AddKill(1);
 
-        // 유령이 플레이어와 충돌시 -> 리스트에서 제거, 유령파괴
+        // 유령이 플레이어와 충돌시 -> 리스트에서 제거, 유령파괴, 충돌효과
         ghost.onCollison += () => ghosts.Remove(ghost);
         ghost.onCollison += () => Destroy(ghost.gameObject);
         ghost.onCollison += () => UIManager.instance.CollisionEffect();

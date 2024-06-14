@@ -80,7 +80,6 @@ public class Gun : MonoBehaviour
         // 레이캐스트(시작 지점, 방향, 충돌 정보 컨테이너, 사정거리)
         if(Physics.Raycast(fireTransform.position, fireTransform.forward, out hit, fireDistance))
         {
-            // 레이가 어떤 물체와 충돌한 경우
 
             // 충돌한 상대방으로부터 IDAmageable 오브젝트 가져오기 시도
             IDamageable target = hit.collider.GetComponent<IDamageable>();
@@ -120,17 +119,15 @@ public class Gun : MonoBehaviour
     {
         // 총구 화염 효과 재생
         muzzleFlashEffect.Play();
-
         // 총격 소리 재생
         gunAudioPlayer.PlayOneShot(gunData.shotClip);
-        // 궤적 선의 시작점은 총구의 위치
+
+        // 궤적 선의 시작점, 끝점
         bulletLineRenderer.SetPosition(0, fireTransform.position);
-        // 궤적 선의 끝점은 입력으로 들어온 충돌 위치
         bulletLineRenderer.SetPosition(1, hitPosition);
-        // 라인 렌더러를 활성화하여 탄알 궤적을 표시
+        // 라인 렌더러를 활성화
         bulletLineRenderer.enabled = true;
 
-        // 0.03초 처리 대기
         yield return new WaitForSeconds(0.03f);
 
         // 라인 렌더러 비활성화
