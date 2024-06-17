@@ -164,9 +164,9 @@ public class Gun : MonoBehaviour
         int ammoToFill = gunData.magCapacity - magAmmo;
 
         // 탄알에 채워야 할 탄알이 남은 탄알보다 많다면
-        // 채워야 할 탄알 수 를 남은 탄알 수에 맞춰 줄임
         if(ammoRemain < ammoToFill) 
         {
+            // 채워야 할 탄알 수 를 남은 탄알 수에 맞춰 줄임
             ammoToFill = ammoRemain;
         }
 

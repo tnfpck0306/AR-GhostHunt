@@ -12,7 +12,7 @@ public class Ghost : LivingEntity
 
     public float damage = 20f; // 공격력
     public float speed; // 속도
-    public float updateInterval = 0.04f;
+    public float updateInterval = 0.04f; // 코루틴 처리 대기시간
 
     private bool hasTarget
     {

@@ -6,9 +6,11 @@ using UnityEngine;
 // 주기적으로 유령 생성 및 사망 상호작용
 public class GhostSpawner : MonoBehaviour
 {
-    public Ghost ghostPrefab; // 유령 프리팹
+    // 유령 프리팹 & 유령 데이터
+    // 0. 일반 유령 1. 갈색 유령
+    public Ghost[] ghostPrefab;
+    public GhostData[] ghostData;
 
-    public GhostData ghostData; // 사용할 유령 데이터
     public Transform[] spawnPoints; // 유령을 소환할 위치
 
     private List<Ghost> ghosts = new List<Ghost>(); // 생성된 유령을 담을 리스트
@@ -27,22 +29,33 @@ public class GhostSpawner : MonoBehaviour
             return;
         }
 
-        if(ghosts.Count < 1)
+        /*
+         * 레벨 디자인
+         * 기본적으로 유령(체력100, 공격력 20, 속도 0.5)이 한마리씩 등장
+         * 5킬마다 갈색 유령(체력150, 공격력 40, 속도 0.3) 추가 등장
+         * 10킬을 기준으로 유령이 한마리씩 추가 등장 [10-> 2마리, 20-> 3마리]
+        */
+        if (ghosts.Count < (GameManager.instance.kill / 10) + 1)
         {
-            CreateGhost();
+            CreateGhost(0);
+
+            if (GameManager.instance.kill % 5 == 0 && GameManager.instance.kill != 0)
+            {
+                CreateGhost(1);
+            }
         }
     }
 
-    private void CreateGhost()
+    private void CreateGhost(int num)
     {
         // Spawn Points에서 랜덤으로 유령을 생성
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         // 유령 생성
-        Ghost ghost = Instantiate(ghostPrefab, spawnPoint.position, spawnPoint.rotation);
+        Ghost ghost = Instantiate(ghostPrefab[num], spawnPoint.position, spawnPoint.rotation);
 
         // 유령 능력치 부여 및 리스트에 추가
-        ghost.Setup(ghostData);
+        ghost.Setup(ghostData[num]);
         ghosts.Add(ghost);
 
         // 유령 사망시 -> 리스트에서 제거, 유령파괴, 킬 수 상승

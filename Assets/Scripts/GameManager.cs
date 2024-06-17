@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
 
     private static GameManager m_instance;
 
-    public int kill = 0;
-    public bool isGameOver { get; private set; }
+    public int kill = 0; // 게임의 킬 수
+    public bool isGameOver { get; private set; } // 게임오버 여부
 
     string highScoreKey = "HighScore"; // PlayerPrefs에 사용할 최고기록 키
 

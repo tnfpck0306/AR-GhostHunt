@@ -39,6 +39,12 @@ public class LivingEntity : MonoBehaviour, IDamageable
             return;
         }
 
+        // 회복량이 시작 체력을 초과한다면
+        if(startingHealth < health + heal)
+        {
+            heal = startingHealth - health;
+        }
+
         health += heal;
     }
 

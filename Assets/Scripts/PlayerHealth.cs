@@ -38,7 +38,7 @@ public class PlayerHealth : LivingEntity
         healthSlider.value = health;
     }
 
-    // 아이템과 충돌 시, 아이템 사용
+    // 아이템과 충돌 시
     private void OnTriggerEnter(Collider other)
     {
         if (!dead)
@@ -48,6 +48,7 @@ public class PlayerHealth : LivingEntity
 
             if(item != null)
             {
+                // 아이템 사용
                 item.Use(gameObject);
             }
 
