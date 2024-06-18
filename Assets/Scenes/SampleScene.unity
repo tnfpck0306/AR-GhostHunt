@@ -2120,9 +2120,11 @@ MonoBehaviour:
   ghostPrefab:
   - {fileID: 5936721435273418079, guid: 2ae7106b160e1454f8398a061373e821, type: 3}
   - {fileID: 1489997127274398554, guid: 8e4efbbd7c687e546ae4b835b9568e96, type: 3}
+  - {fileID: 2883425216121576545, guid: afe8ce239d428484bb434f282a2ee9e3, type: 3}
   ghostData:
   - {fileID: 11400000, guid: ed8644da279e08b408134092cc653c68, type: 2}
   - {fileID: 11400000, guid: 3ecd0703ce8e6c349aacf989db5a6f3e, type: 2}
+  - {fileID: 11400000, guid: a7e9609941422bd43959d3c8d5a0bed0, type: 2}
   spawnPoints:
   - {fileID: 8823339923595815400}
   - {fileID: 1644201052}

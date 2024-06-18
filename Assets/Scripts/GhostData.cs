@@ -9,4 +9,5 @@ public class GhostData : ScriptableObject
     public float health = 100f; // 체력
     public float damge = 20f; // 공격력
     public float speed; // 이동속도
+    public int type; // 종류
 }

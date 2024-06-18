@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7936659903425331976}
   - component: {fileID: -7534759337717930874}
   - component: {fileID: -7287799372827063640}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealPack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

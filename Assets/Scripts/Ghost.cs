@@ -13,6 +13,8 @@ public class Ghost : LivingEntity
     public float damage = 20f; // 공격력
     public float speed; // 속도
     public float updateInterval = 0.04f; // 코루틴 처리 대기시간
+    public int type; // 유령의 종류
+    public GameObject[] skin; // 블링크 효과가 적용되는 유령의 부위
 
     private bool hasTarget
     {
@@ -37,11 +39,19 @@ public class Ghost : LivingEntity
         damage = ghostData.damge;
         // 속도 설정
         speed = ghostData.speed;
+        // 종류 설정
+        type = ghostData.type;
     }
 
     private void Start()
     {
         StartCoroutine(UpdatePath());
+        
+        // 유령의 종류가 2(뿔유령)인 경우 블링크 효과
+        if(type == 2)
+        {
+            StartCoroutine(BlinkEffect());
+        }
 
         // 킬 수 마다 속도 증가
         speed = GameManager.instance.kill * 0.1f + speed;
@@ -95,7 +105,27 @@ public class Ghost : LivingEntity
         // LivingEntity의 OnDamage()를 실행하여 대미지 적용
         base.OnDamage(damage, hitPoint, hitNormal);
     }
-    
+
+    private IEnumerator BlinkEffect()
+    {
+        while (!dead)
+        {
+            // 블링크 효과에 적용되는 부위들 활성화
+            for(int i = 0; i < skin.Length; i++)
+            {
+                skin[i].SetActive(true);
+            }
+            yield return new WaitForSeconds(1f);
+
+            // 블링크 효과에 적용되는 부위들 비활성화
+            for (int i = 0; i < skin.Length; i++)
+            {
+                skin[i].SetActive(false);
+            }
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
     public override void Die()
     {
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행

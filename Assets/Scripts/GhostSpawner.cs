@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -34,14 +35,22 @@ public class GhostSpawner : MonoBehaviour
          * 기본적으로 유령(체력100, 공격력 20, 속도 0.5)이 한마리씩 등장
          * 5킬마다 갈색 유령(체력150, 공격력 40, 속도 0.3) 추가 등장
          * 10킬을 기준으로 유령이 한마리씩 추가 등장 [10-> 2마리, 20-> 3마리]
+         * 20킬 이후 3킬마다 뿔유령(체력 50, 공격력 20, 속도 0.5, 블링크 효과) 등장
         */
-        if (ghosts.Count < (GameManager.instance.kill / 10) + 1)
+        int killCount = GameManager.instance.kill; // 킬 수
+
+        if (ghosts.Count < (killCount / 10) + 1)
         {
             CreateGhost(0);
 
-            if (GameManager.instance.kill % 5 == 0 && GameManager.instance.kill != 0)
+            if (killCount > 0 && killCount % 5 == 0)
             {
                 CreateGhost(1);
+            }
+
+            if(killCount > 20 && (killCount - 20) % 3 == 0)
+            {
+                CreateGhost(2);
             }
         }
     }
