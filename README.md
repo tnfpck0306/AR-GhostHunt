@@ -20,7 +20,6 @@ and players can challenge their best records with items and quickness.
 5. A button for firing gun
 
 ## Key Feature
-
 **Ghost** | **Gun shot** | **Ammo**
 :-------------------------:|:-------------------------:|:-------------------------:
 <img width = 250px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/c9a4c09f-dc51-4e70-89dc-50de4981ab22> | <img width = 150px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/97e83cc0-49ce-402f-8549-e0ea4340cba5> | <img width = 200px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/754339c4-fec1-4190-a1ce-e0dfbdffdb81>
@@ -33,6 +32,15 @@ and players can challenge their best records with items and quickness.
 - You can check the amount of health loss caused by ghosts
 - If you get close to the item, you can get it, and the ammunition box can replenish the entire ammunition, and the health box can restore the player health
 - You can check the highest score among the results of the game
+
+## Level Design
+- Player (Health 100, Damage 50)
+- Basically, ghosts (Health 100, Damage 20, Speed 0.5) appear one by one
+- Based on 10 kills, an additional ghost appears. [over 10 kill -> 2 ghosts / over 20 kill -> 3 ghosts]
+
+- Additional brown ghosts (Health 150, Damage 40, Speed 0.3) appear every 5 kills
+
+- After 20 kills, one out of three appeared as a horn ghost (Health 50, Damage 20, speed 0.5, BLINK effect)
 
 ## How to use it
 *If you run the app with your phone camera facing the front at the user's eye level in a wide place,   
