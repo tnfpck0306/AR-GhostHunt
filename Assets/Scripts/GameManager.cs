@@ -40,6 +40,14 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<PlayerHealth>().onDeath += EndGame;
     }
 
+    private void Update()
+    {
+        if(kill > 0 && kill % 10 == 0)
+        {
+            // UI 매니져에서 메소드 불러오기
+        }
+    }
+
     // 킬 수를 추가하고 UI 생신
     public void AddKill(int newKill)
     {

@@ -43,6 +43,12 @@ public class UIManager : MonoBehaviour
         killText.text = "Kill : " + newKill;
     }
 
+    public void SetActiveSkillUI()
+    {
+        // 스킬창 활성화
+    }
+
+    // 충돌 효과의 코루틴
     public void CollisionEffect()
     {
         StartCoroutine(CollisonEffect_Coroutine());
