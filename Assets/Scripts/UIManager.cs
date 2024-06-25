@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,7 +30,19 @@ public class UIManager : MonoBehaviour
     public GameObject collisonEffect; // 충돌시 효과 UI
     public GameObject gameoverUI; // 게임오버 시 활성화할 UI
     public GameObject mainMenuUI; // 메인메뉴 UI
+    public GameObject selectSkillUI; // 스킬 선택창 UI
+
+    public int[] skill = new int[10];
+
     public bool startMenu = true;
+
+    public void Start()
+    {
+        for(int index = 0; index < skill.Length; index++)
+        {
+            skill[index] = index;
+        }
+    }
 
     // 탄알 텍스트 갱신
     public void UpdateAmmoText(int magAmmo, int remainAmmo)
@@ -43,9 +56,21 @@ public class UIManager : MonoBehaviour
         killText.text = "Kill : " + newKill;
     }
 
+    // 스킬 선택창 활성화
     public void SetActiveSkillUI()
     {
-        // 스킬창 활성화
+        int[] skillIndex = new int[3]; // 3개의 스킬 선택지
+        int[] sampleSkill = skill; // 
+        
+        selectSkillUI.SetActive(true);
+
+        for(int index = 0; index < skillIndex.Length; index++)
+        {
+            int rand = Random.Range(0, sampleSkill.Length);
+            skillIndex[index] = sampleSkill[rand];
+            sampleSkill = sampleSkill.Where(val => val != skillIndex[index]).ToArray();
+
+        }
     }
 
     // 충돌 효과의 코루틴

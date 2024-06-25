@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-// 점수와 게임오버 여부를 관리하는 게임 매니저
+// 점수(킬 수)와 게임오버 여부를 관리하는 게임 매니저
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
     private static GameManager m_instance;
 
     public int kill = 0; // 게임의 킬 수
+
+    private bool isChoice = false; // 스킬 선택 여부
     public bool isGameOver { get; private set; } // 게임오버 여부
 
     string highScoreKey = "HighScore"; // PlayerPrefs에 사용할 최고기록 키
@@ -42,9 +45,18 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(kill > 0 && kill % 10 == 0)
+        // 스킬 선택을 아직 안함 & 10킬 마다
+        if(kill > 0 && kill % 10 == 0 && !isChoice )
         {
-            // UI 매니져에서 메소드 불러오기
+            // 스킬 선택창 UI 활성화
+            UIManager.instance.SetActiveSkillUI();
+            isChoice = true;
+        }
+
+        // 스킬을 선택 & 1킬 후
+        if (kill % 10 == 1 && isChoice)
+        {
+            isChoice = false;
         }
     }
 
