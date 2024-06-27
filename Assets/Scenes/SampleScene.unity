@@ -274,11 +274,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &229876469 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3151022382477233586, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
-  m_PrefabInstance: {fileID: 8823339923595815396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &326286231
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +319,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &326286234
 AudioSource:
@@ -338,7 +333,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 97fd2f1b31b88234ea7ac5f3706c661f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.84
+  m_Volume: 0.168
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -712,7 +707,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 468446484}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1298454193}
+        m_TargetAssemblyTypeName: ButtonListener, Assembly-CSharp
+        m_MethodName: OnButtonClickedSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &507860341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1133,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 885476771}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1298454193}
+        m_TargetAssemblyTypeName: ButtonListener, Assembly-CSharp
+        m_MethodName: OnButtonClickedSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &933715247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1313,7 @@ GameObject:
   - component: {fileID: 964960308}
   - component: {fileID: 964960310}
   - component: {fileID: 964960309}
+  - component: {fileID: 964960311}
   m_Layer: 5
   m_Name: SelectSkill UI
   m_TagString: Untagged
@@ -1362,6 +1382,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964960307}
   m_CullTransparentMesh: 1
+--- !u!114 &964960311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964960307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fea0d654cb68674e80ca9a8b0a383a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPref: {fileID: 1909084564869549624}
 --- !u!1 &1001151408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,8 +1797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 1040686046}
-  selectSkillUI: {fileID: 0}
-  skillText: {fileID: 0}
+  skillManager: {fileID: 964960311}
+  selectSkillUI: {fileID: 964960307}
 --- !u!4 &1298454194
 Transform:
   m_ObjectHideFlags: 0
@@ -1773,13 +1806,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298454192}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540, y: 960, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5624998, y: 0.5624998, z: 0.5624998}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1560032701}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320607531
 GameObject:
@@ -2401,6 +2434,7 @@ RectTransform:
   - {fileID: 1809382095}
   - {fileID: 558120704}
   - {fileID: 964960308}
+  - {fileID: 1298454194}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2424,11 +2458,22 @@ MonoBehaviour:
   ammoText: {fileID: 1780818882}
   killText: {fileID: 510836043}
   highScoreText: {fileID: 1851776780}
+  skillText:
+  - {fileID: 1887481312}
+  - {fileID: 933715249}
+  - {fileID: 1235782292}
   collisonEffect: {fileID: 558120703}
   gameoverUI: {fileID: 1636328711}
   mainMenuUI: {fileID: 1809382094}
   selectSkillUI: {fileID: 964960307}
-  skill: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  skillData: {fileID: 11400000, guid: 5e0743755360c70468e2060d3287739e, type: 2}
+  skillIndex:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   startMenu: 1
 --- !u!1 &1613750677
 GameObject:
@@ -2585,11 +2630,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636328711}
   m_CullTransparentMesh: 1
---- !u!4 &1644201052 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3930981479990889657, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
-  m_PrefabInstance: {fileID: 8823339923595815396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1705623395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,9 +2669,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7e9609941422bd43959d3c8d5a0bed0, type: 2}
   spawnPoints:
   - {fileID: 8823339923595815400}
-  - {fileID: 1644201052}
-  - {fileID: 229876469}
-  - {fileID: 1853727519}
 --- !u!4 &1705623397
 Transform:
   m_ObjectHideFlags: 0
@@ -2645,7 +2682,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1713334200
 GameObject:
@@ -2677,7 +2714,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1713334202
 MonoBehaviour:
@@ -3150,11 +3187,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851776778}
   m_CullTransparentMesh: 1
---- !u!4 &1853727519 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7679425612410040673, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
-  m_PrefabInstance: {fileID: 8823339923595815396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1881203737
 GameObject:
   m_ObjectHideFlags: 0
@@ -3508,7 +3540,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2112963818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1298454193}
+        m_TargetAssemblyTypeName: ButtonListener, Assembly-CSharp
+        m_MethodName: OnButtonClickedSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &748796570594914923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,7 +3703,7 @@ Transform:
   m_Children:
   - {fileID: 8442901557960455887}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4006150469167594717
 MonoBehaviour:

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ButtonListener : MonoBehaviour
 {
     public Gun gun;
+    public SetSkillManager skillManager;
 
     public GameObject selectSkillUI;
-
-    public Text skillText;
 
     // 사격 버튼 클릭시 총 발사
     public void OnButtonClickedShot()
@@ -25,6 +25,9 @@ public class ButtonListener : MonoBehaviour
 
     public void OnButtonClickedSkill()
     {
+        GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+
+        skillManager.SetSkill(clickObject.GetComponentInChildren<Text>().text);
         selectSkillUI.SetActive(false);
     }
 }
