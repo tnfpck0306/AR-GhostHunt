@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     }
 
     private static GameManager m_instance;
+    public SetSkillManager setSkillManager;
 
     public int kill = 0; // 게임의 킬 수
 
@@ -43,13 +44,14 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<PlayerHealth>().onDeath += EndGame;
     }
 
+    /*
     private void Update()
     {
         // 스킬 선택을 아직 안함 & 10킬 마다
         if(kill > 0 && kill % 10 == 0 && !isChoice )
         {
             // 스킬 선택창 UI 활성화
-            UIManager.instance.SetActiveSkillUI();
+            setSkillManager.SetActiveSkillUI();
             isChoice = true;
         }
 
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
         {
             isChoice = false;
         }
-    }
+    }*/
 
     // 킬 수를 추가하고 UI 생신
     public void AddKill(int newKill)

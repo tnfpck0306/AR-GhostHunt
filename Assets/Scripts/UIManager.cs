@@ -27,15 +27,9 @@ public class UIManager : MonoBehaviour
     public Text killText; // 킬 수 표시용 텍스트
     public Text highScoreText; // 최고 점수 표시용 텍스트
 
-    public Text[] skillText = new Text[3]; // 스킬 선택창의 스킬 텍스트
-
     public GameObject collisonEffect; // 충돌시 효과 UI
     public GameObject gameoverUI; // 게임오버 시 활성화할 UI
     public GameObject mainMenuUI; // 메인메뉴 UI
-    public GameObject selectSkillUI; // 스킬 선택창 UI
-
-    public SkillData skillData; // 스킬 데이터
-    public List<string> skillIndex;
 
     public bool startMenu = true;
 
@@ -49,21 +43,6 @@ public class UIManager : MonoBehaviour
     public void UpdateKillText(int newKill)
     {
         killText.text = "Kill : " + newKill;
-    }
-
-    // 스킬 선택창 활성화
-    public void SetActiveSkillUI()
-    {
-        skillIndex = skillData.SkillList;
-
-        for (int index = 0; index < skillText.Length; index++)
-        {
-            int rand = Random.Range(0, skillIndex.Count);
-            skillText[index].text = skillIndex[rand];
-            skillIndex.RemoveAt(rand); // 중복 방지
-        }
-        selectSkillUI.SetActive(true);
-
     }
 
     // 충돌 효과의 코루틴

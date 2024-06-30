@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &32987779 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3930981479990889657, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &135553347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,7 +225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 40, y: 220}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &217392676
@@ -305,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bfa0ff827190c43bcf93fcdc7de85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setSkillManager: {fileID: 964960311}
   kill: 0
 --- !u!4 &326286233
 Transform:
@@ -333,7 +339,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 97fd2f1b31b88234ea7ac5f3706c661f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.168
+  m_Volume: 0.677
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -792,7 +798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: 0}
+  m_AnchoredPosition: {x: 30, y: -60}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &510836043
@@ -1394,6 +1400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fea0d654cb68674e80ca9a8b0a383a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillText:
+  - {fileID: 1887481312}
+  - {fileID: 933715249}
+  - {fileID: 1235782292}
+  skillData: {fileID: 11400000, guid: 5e0743755360c70468e2060d3287739e, type: 2}
   playerPref: {fileID: 1909084564869549624}
 --- !u!1 &1001151408
 GameObject:
@@ -1590,7 +1601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 0}
+  m_AnchoredPosition: {x: 30, y: 30}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1183775545
@@ -1767,6 +1778,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235782290}
   m_CullTransparentMesh: 1
+--- !u!4 &1236853438 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7679425612410040673, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1298454192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,7 +1866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 0}
+  m_AnchoredPosition: {x: 30, y: 150}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1320607533
@@ -2025,6 +2041,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339957958}
   m_CullTransparentMesh: 1
+--- !u!4 &1355433018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3151022382477233586, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1484245658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 150}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1529073092
@@ -2458,22 +2479,9 @@ MonoBehaviour:
   ammoText: {fileID: 1780818882}
   killText: {fileID: 510836043}
   highScoreText: {fileID: 1851776780}
-  skillText:
-  - {fileID: 1887481312}
-  - {fileID: 933715249}
-  - {fileID: 1235782292}
   collisonEffect: {fileID: 558120703}
   gameoverUI: {fileID: 1636328711}
   mainMenuUI: {fileID: 1809382094}
-  selectSkillUI: {fileID: 964960307}
-  skillData: {fileID: 11400000, guid: 5e0743755360c70468e2060d3287739e, type: 2}
-  skillIndex:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   startMenu: 1
 --- !u!1 &1613750677
 GameObject:
@@ -2669,6 +2677,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7e9609941422bd43959d3c8d5a0bed0, type: 2}
   spawnPoints:
   - {fileID: 8823339923595815400}
+  - {fileID: 32987779}
+  - {fileID: 1355433018}
+  - {fileID: 1236853438}
 --- !u!4 &1705623397
 Transform:
   m_ObjectHideFlags: 0
@@ -2772,7 +2783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -30, y: 0}
+  m_AnchoredPosition: {x: -30, y: 30}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1760157624
@@ -3378,7 +3389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2007102400
