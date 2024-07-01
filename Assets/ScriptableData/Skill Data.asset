@@ -14,8 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillList:
   - "\uCCB4\uB825\uC99D\uAC00"
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
+  - "\uCD1D\uC54C \uC7AC\uC0DD"
+  - "\uC544\uC774\uD15C \uC2A4\uD3F0\uC2DC\uAC04 \uAC10\uC18C"

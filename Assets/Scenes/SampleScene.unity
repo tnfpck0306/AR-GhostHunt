@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bfa0ff827190c43bcf93fcdc7de85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setSkillManager: {fileID: 964960311}
+  setSkillManager: {fileID: 1268908630}
   kill: 0
 --- !u!4 &326286233
 Transform:
@@ -1319,7 +1319,6 @@ GameObject:
   - component: {fileID: 964960308}
   - component: {fileID: 964960310}
   - component: {fileID: 964960309}
-  - component: {fileID: 964960311}
   m_Layer: 5
   m_Name: SelectSkill UI
   m_TagString: Untagged
@@ -1388,24 +1387,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964960307}
   m_CullTransparentMesh: 1
---- !u!114 &964960311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964960307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fea0d654cb68674e80ca9a8b0a383a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillText:
-  - {fileID: 1887481312}
-  - {fileID: 933715249}
-  - {fileID: 1235782292}
-  skillData: {fileID: 11400000, guid: 5e0743755360c70468e2060d3287739e, type: 2}
-  playerPref: {fileID: 1909084564869549624}
 --- !u!1 &1001151408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1764,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7679425612410040673, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
   m_PrefabInstance: {fileID: 8823339923595815396}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1268908629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1268908631}
+  - component: {fileID: 1268908630}
+  m_Layer: 0
+  m_Name: Skill Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1268908630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268908629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fea0d654cb68674e80ca9a8b0a383a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillText:
+  - {fileID: 1887481312}
+  - {fileID: 933715249}
+  - {fileID: 1235782292}
+  skillData: {fileID: 11400000, guid: 5e0743755360c70468e2060d3287739e, type: 2}
+  selectSkillUI: {fileID: 964960307}
+  playerPref: {fileID: 1909084564869549624}
+  itemSpawner: {fileID: 1713334202}
+--- !u!4 &1268908631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268908629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540, y: 960, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298454192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,7 +1846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 1040686046}
-  skillManager: {fileID: 964960311}
+  skillManager: {fileID: 1268908630}
   selectSkillUI: {fileID: 964960307}
 --- !u!4 &1298454194
 Transform:
@@ -2744,9 +2777,9 @@ MonoBehaviour:
   - {fileID: 7144545475101422083, guid: 90b2f4711ef272949ae6be1ea16c9a3e, type: 3}
   playerTransform: {fileID: 4762955180308351554}
   maxDistance: 3
-  timeBetSpawnMax: 10
-  timeBetSpawnMin: 2
-  destroyTime: 30
+  timeBetSpawnMax: 30
+  timeBetSpawnMin: 25
+  destroyTime: 35
 --- !u!1 &1760157622
 GameObject:
   m_ObjectHideFlags: 0
