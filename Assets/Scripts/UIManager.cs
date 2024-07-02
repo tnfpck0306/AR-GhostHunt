@@ -30,8 +30,9 @@ public class UIManager : MonoBehaviour
     public GameObject collisonEffect; // 충돌시 효과 UI
     public GameObject gameoverUI; // 게임오버 시 활성화할 UI
     public GameObject mainMenuUI; // 메인메뉴 UI
+    public GameObject settingUI; // 설정메뉴 UI
 
-    public bool startMenu = true;
+    private bool startMenu = true;
 
     // 탄알 텍스트 갱신
     public void UpdateAmmoText(int magAmmo, int remainAmmo)
@@ -68,6 +69,22 @@ public class UIManager : MonoBehaviour
         highScoreText.text = "High Score : " + highScore;
 
         gameoverUI.SetActive(active);
+    }
+
+    // 설정메뉴 UI 활성화
+    public void GameSettingUI()
+    {
+        startMenu = false;
+        settingUI.SetActive(!startMenu);
+        mainMenuUI.SetActive(startMenu);
+    }
+
+    // 메인메뉴 UI 활성화
+    public void GameMainMenuUI()
+    {
+        startMenu = true;
+        settingUI.SetActive(!startMenu);
+        mainMenuUI.SetActive(startMenu);
     }
 
     // 메인메뉴 UI 비활성화

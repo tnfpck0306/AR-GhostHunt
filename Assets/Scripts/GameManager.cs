@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // 스킬 선택을 아직 안함 & 10킬 마다
-        if(kill > 0 && kill % 3 == 0 && !isChoice )
+        if(kill > 0 && kill % 10 == 0 && !isChoice )
         {
             // 스킬 선택창 UI 활성화
             setSkillManager.SetActiveSkillUI();
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
 
         // 스킬을 선택 & 1킬 후
-        if (kill % 3 == 1 && isChoice)
+        if (kill % 10 == 1 && isChoice)
         {
             isChoice = false;
         }

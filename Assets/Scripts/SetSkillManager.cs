@@ -24,12 +24,12 @@ public class SetSkillManager : MonoBehaviour
     }
 
     // 스킬 적용
-    public void SetSkill(string var)
+    public void SetSkill(string skill)
     {
         LivingEntity player = playerPref.GetComponent<LivingEntity>();
         PlayerHealth playerHealth = playerPref.GetComponent<PlayerHealth>();
 
-        switch (var)
+        switch (skill)
         {
             case "체력증가":
                 playerHealth.healthSlider.maxValue += 50; // 체력 실린더의 값(UI) 50 증가
