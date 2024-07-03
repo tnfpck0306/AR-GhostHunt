@@ -53,8 +53,8 @@ public class Ghost : LivingEntity
             StartCoroutine(BlinkEffect());
         }
 
-        // 킬 수 마다 속도 증가
-        speed = GameManager.instance.kill * 0.1f + speed;
+        // 5킬 마다 유령 속도 증가
+        speed = (GameManager.instance.kill / 5) * 0.1f + speed;
     }
 
     private IEnumerator UpdatePath()
