@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Skill Data
   m_EditorClassIdentifier: 
   SkillList:
-  - "\uCCB4\uB825\uC99D\uAC00"
-  - "\uCD1D\uC54C \uC7AC\uC0DD"
+  - "\uCCB4\uB825 \uC99D\uAC00"
+  - "\uD0C4\uC54C \uBCF4\uAE09"
   - "\uC544\uC774\uD15C \uC2A4\uD3F0\uC2DC\uAC04 \uAC10\uC18C"
+  - "\uC720\uB839 \uC18D\uB3C4 \uAC10\uC18C"

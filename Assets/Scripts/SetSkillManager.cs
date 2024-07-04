@@ -13,6 +13,7 @@ public class SetSkillManager : MonoBehaviour
     public GameObject selectSkillUI; // 스킬 선택창
     public GameObject playerPref; // 플레이어(체력 컴포넌트)
 
+    public GhostSpawner ghostSpawner;
     public ItemSpawner itemSpawner;
 
     List<string> playerSkillIndex; // 플레이어가 선택할 수 있는 남은 스킬들
@@ -31,14 +32,14 @@ public class SetSkillManager : MonoBehaviour
 
         switch (skill)
         {
-            case "체력증가":
+            case "체력 증가":
                 playerHealth.healthSlider.maxValue += 50; // 체력 실린더의 값(UI) 50 증가
                 player.startingHealth += 50; // 플레이어 최대체력 50 증가
                 playerSkillIndex.Remove("체력증가");
                 break;
 
-            case "1":
-                print("1");
+            case "탄알 보급":
+                StartCoroutine(SkillAutoAmmo());
                 break;
 
             case "아이템 스폰시간 감소":
@@ -47,9 +48,24 @@ public class SetSkillManager : MonoBehaviour
                 playerSkillIndex.Remove("아이템 스폰시간 감소");
                 break;
 
-            case "3":
-                print("3");
+            case "유령 속도 감소":
+                
+                // 속도 감소 코드
+                
                 break;
+        }
+    }
+
+    // 탄알 보급 스킬
+    public IEnumerator SkillAutoAmmo()
+    {
+        PlayerShooter playerShooter = playerPref.GetComponent<PlayerShooter>();
+
+        while(true)
+        {
+            // 5초에 탄알 5씩 탄창에 추가
+            yield return new WaitForSeconds(5f);
+            playerShooter.gun.ammoRemain += 5;
         }
     }
 

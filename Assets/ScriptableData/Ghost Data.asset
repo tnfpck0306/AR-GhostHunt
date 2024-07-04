@@ -15,3 +15,4 @@ MonoBehaviour:
   health: 100
   damge: 20
   speed: 0.5
+  type: 0

@@ -2683,6 +2683,7 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: 5e0743755360c70468e2060d3287739e, type: 2}
   selectSkillUI: {fileID: 964960307}
   playerPref: {fileID: 1909084564869549624}
+  ghostSpawner: {fileID: 1705623396}
   itemSpawner: {fileID: 1713334202}
 --- !u!4 &1268908631
 Transform:
