@@ -33,14 +33,31 @@ and players can challenge their best records with items and quickness.
 - If you get close to the item, you can get it, and the ammunition box can replenish the entire ammunition, and the health box can restore the player health
 - You can check the highest score among the results of the game
 
-## Level Design
+## Level Design(Developing)
+- Ghost (Health 100, Damage 20, Speed 0.5)
+- Brown Ghost (Health 150, Damage 40, Speed 0.3)
+- Horn Ghost (Health 50, Damage 20, Speed 0.5, BLINK effect)
+- Boss Ghost (Health 10 * player kill count, Damage instant kill, Speed 0.5
+
+Basically, ghosts appear one by one.  
+The speed of all ghosts per 5 kills increases by 0.1.  
+1 increase in the number of ghosts per 10 kills [over 10 kill -> 2 ghosts / over 20 kill -> 3 ghosts]  
+Additional brown ghosts appear every 5 kills.  
+After 20 kills, one out of three appeared as a horn ghost.  
+Boss ghost appears every 25 kills.  
+
+<br/><br/>
 - Player (Health 100, Damage 50)
-- Basically, ghosts (Health 100, Damage 20, Speed 0.5) appear one by one
-- Based on 10 kills, an additional ghost appears. [over 10 kill -> 2 ghosts / over 20 kill -> 3 ghosts]
+Select a skill for every 10 kills of the player
 
-- Additional brown ghosts (Health 150, Damage 40, Speed 0.3) appear every 5 kills
-
-- After 20 kills, one out of three appeared as a horn ghost (Health 50, Damage 20, speed 0.5, BLINK effect)
+1. Player Attacks Increase by 20
+2. Automatic bullet supply (5 supply every 5 seconds)
+3. 50% increase in maximum health
+4. Regeneration of health(four per kill)
+5. Item Spawn Time Reduction by 15% (25 to 30) -> (21.25 to 25.5)
+6. 20% increase item efficiency
+7. Reduced ghost speed
+8. Display nearest ghost
 
 ## How to use it
 *If you run the app with your phone camera facing the front at the user's eye level in a wide place,   
