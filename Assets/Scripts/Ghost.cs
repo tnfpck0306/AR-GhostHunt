@@ -45,6 +45,8 @@ public class Ghost : LivingEntity
 
     private void Start()
     {
+        int killCount = GameManager.instance.kill; // 플레이어의 킬 수
+
         StartCoroutine(UpdatePath());
         
         // 유령의 종류가 2(뿔유령)인 경우 블링크 효과
@@ -53,8 +55,15 @@ public class Ghost : LivingEntity
             StartCoroutine(BlinkEffect());
         }
 
+        // 유령의 종류가 3(보스유령)인 경우 체력은 킬 수 * 10
+        else if(type == 3)
+        {
+            startingHealth = killCount * 10;
+            health = killCount * 10;
+        }
+
         // 5킬 마다 유령 속도 증가
-        speed = (GameManager.instance.kill / 5) * 0.1f + speed;
+        speed = (killCount / 5) * 0.1f + speed;
     }
 
     private IEnumerator UpdatePath()

@@ -33,9 +33,11 @@ public class GhostSpawner : MonoBehaviour
         /*
          * 레벨 디자인
          * 기본적으로 유령(체력100, 공격력 20, 속도 0.5)이 한마리씩 등장
-         * 5킬마다 갈색 유령(체력150, 공격력 40, 속도 0.3) 추가 등장
          * 10킬을 기준으로 유령이 한마리씩 추가 등장 [10-> 2마리, 20-> 3마리]
+         * 
+         * 5킬마다 갈색 유령(체력150, 공격력 40, 속도 0.3) 추가 등장
          * 20킬 이후 3킬마다 뿔유령(체력 50, 공격력 20, 속도 0.5, 블링크 효과) 등장
+         * 25킬마다 보스 유령(체력 10 * 플레이어 킬 수, 공격력 150, 속도 0.5) 등장
         */
         int killCount = GameManager.instance.kill; // 킬 수
 
@@ -51,6 +53,11 @@ public class GhostSpawner : MonoBehaviour
             if(killCount > 20 && (killCount - 20) % 3 == 0)
             {
                 CreateGhost(2);
+            }
+
+            if (killCount > 0 && killCount % 25 == 0)
+            {
+                CreateGhost(3);
             }
         }
     }
