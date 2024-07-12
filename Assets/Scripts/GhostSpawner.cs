@@ -16,6 +16,8 @@ public class GhostSpawner : MonoBehaviour
 
     private List<Ghost> ghosts = new List<Ghost>(); // 생성된 유령을 담을 리스트
 
+    public SetSkillManager setSkillManager;
+
     private void Update()
     {
         // 메인메뉴 & 설정메뉴 화면에서는 생성하지 않음
@@ -74,10 +76,12 @@ public class GhostSpawner : MonoBehaviour
         ghost.Setup(ghostData[num]);
         ghosts.Add(ghost);
 
-        // 유령 사망시 -> 리스트에서 제거, 유령파괴, 킬 수 상승
+        // 유령 사망시 -> 리스트에서 제거, 유령파괴, 킬 수 상승, 체력 재생(스킬 활성화 시)
         ghost.onDeath += () => ghosts.Remove(ghost);
         ghost.onDeath += () => Destroy(ghost.gameObject, 0.2f);
         ghost.onDeath += () => GameManager.instance.AddKill(1);
+        if(setSkillManager.isHealthRegen)
+            ghost.onDeath += () => setSkillManager.SkillHealthRegen();
 
         // 유령이 플레이어와 충돌시 -> 리스트에서 제거, 유령파괴, 충돌효과
         ghost.onCollison += () => ghosts.Remove(ghost);

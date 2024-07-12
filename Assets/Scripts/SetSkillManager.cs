@@ -12,34 +12,60 @@ public class SetSkillManager : MonoBehaviour
 
     public GameObject selectSkillUI; // 스킬 선택창
     public GameObject playerPref; // 플레이어(체력 컴포넌트)
+    private LivingEntity player;
 
     public GhostSpawner ghostSpawner;
     public ItemSpawner itemSpawner;
 
-    List<string> playerSkillIndex; // 플레이어가 선택할 수 있는 남은 스킬들
+    public List<string> playerSkillIndex; // 플레이어가 선택할 수 있는 남은 스킬들
     List<string> uiSkillIndex; // UI에 띄울 스킬들
+
+    public Text healthText; // 체력 시각화 텍스트(테스트용)
+
+    public bool isHealthRegen = false; // 체력 회복 스킬 활성화 여부
 
     private void Awake()
     {
         playerSkillIndex = new List<string>(skillData.SkillList);
+        player = playerPref.GetComponent<LivingEntity>();
+
+    }
+
+    private void Update()
+    {
+        healthText.text = player.health.ToString(); // (테스트용 코드)
+        
     }
 
     // 스킬 적용
     public void SetSkill(string skill)
     {
-        LivingEntity player = playerPref.GetComponent<LivingEntity>();
         PlayerHealth playerHealth = playerPref.GetComponent<PlayerHealth>();
+        PlayerShooter playerShooter = playerPref.GetComponent<PlayerShooter>();
 
         switch (skill)
         {
-            case "체력 증가":
-                playerHealth.healthSlider.maxValue += 50; // 체력 실린더의 값(UI) 50 증가
-                player.startingHealth += 50; // 플레이어 최대체력 50 증가
-                playerSkillIndex.Remove("체력증가");
+            case "총 공격력 증가":
+
+                // 총 공격력 20 증가
+                //playerShooter.gun.gunData.damage += 20;
+                playerSkillIndex.Remove("총 공격력 증가");
                 break;
 
             case "탄알 보급":
-                StartCoroutine(SkillAutoAmmo());
+                SkillAutoAmmo(playerShooter);
+                playerSkillIndex.Remove("탄알 보급");
+                break;
+
+            case "체력 증가":
+                playerHealth.healthSlider.maxValue += 50; // 체력 실린더의 값(UI) 50 증가
+                player.startingHealth += 50; // 플레이어 최대체력 50 증가
+                playerSkillIndex.Remove("체력 증가");
+                break;
+
+            case "체력 재생":
+                isHealthRegen = true;
+                playerSkillIndex.Remove("체력 재생");
                 break;
 
             case "아이템 스폰시간 감소":
@@ -48,25 +74,42 @@ public class SetSkillManager : MonoBehaviour
                 playerSkillIndex.Remove("아이템 스폰시간 감소");
                 break;
 
+            case "아이템 효율 증가":
+
+                // 아이템 효율 20% 증가 코드
+                playerSkillIndex.Remove("아이템 효율 증가");
+                break;
+
             case "유령 속도 감소":
-                
+
                 // 속도 감소 코드
-                
+                playerSkillIndex.Remove("유령 속도 감소");
+                break;
+
+            case "유령 탐지기":
+
+                // 가장 가까운 유령을 찾는 코드
+                playerSkillIndex.Remove("유령 탐지기");
                 break;
         }
     }
 
     // 탄알 보급 스킬
-    public IEnumerator SkillAutoAmmo()
+    public IEnumerator SkillAutoAmmo(PlayerShooter playerShooter)
     {
-        PlayerShooter playerShooter = playerPref.GetComponent<PlayerShooter>();
-
-        while(true)
+        while (true)
         {
             // 5초에 탄알 5씩 탄창에 추가
             yield return new WaitForSeconds(5f);
             playerShooter.gun.ammoRemain += 5;
         }
+    }
+
+    // 체력 회복 스킬
+    public void SkillHealthRegen()
+    {
+        // 체력을 4회복 (유령 킬 당)
+        player.Heal(4);
     }
 
     // 스킬 선택창 활성화

@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public int kill = 0; // 게임의 킬 수
 
     private bool isChoice = false; // 스킬 선택 여부
+    public bool isHealthRegen = false; // 체력 재생 스킬 활성화 여부
+    public int regenCount = 0; // 체력 재생을 위한 킬 수
+
     public bool isGameOver { get; private set; } // 게임오버 여부
 
     string highScoreKey = "HighScore"; // PlayerPrefs에 사용할 최고기록 키
@@ -46,18 +49,22 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // 스킬 선택을 아직 안함 & 10킬 마다
-        if(kill > 0 && kill % 10 == 0 && !isChoice )
+        // 플레이어가 선택할 수 있는 스킬이 있을 때
+        if (setSkillManager.playerSkillIndex.Count != 0)
         {
-            // 스킬 선택창 UI 활성화
-            setSkillManager.SetActiveSkillUI();
-            isChoice = true;
-        }
+            // 스킬 선택을 아직 안함 & 10킬 마다
+            if (kill > 0 && kill % 10 == 0 && !isChoice)
+            {
+                // 스킬 선택창 UI 활성화
+                setSkillManager.SetActiveSkillUI();
+                isChoice = true;
+            }
 
-        // 스킬을 선택 & 1킬 후
-        if (kill % 10 == 1 && isChoice)
-        {
-            isChoice = false;
+            // 스킬을 선택 & 1킬 후
+            if (kill % 10 == 1 && isChoice)
+            {
+                isChoice = false;
+            }
         }
     }
 
