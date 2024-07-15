@@ -629,6 +629,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236234480}
   m_CullTransparentMesh: 1
+--- !u!4 &271257382 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7679425612410040673, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &326286231
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +670,7 @@ MonoBehaviour:
   isHealthRegen: 0
   kill: 0
   regenCount: 0
-  getSkillKill: 2
+  getSkillKill: 10
 --- !u!4 &326286233
 Transform:
   m_ObjectHideFlags: 0
@@ -4096,6 +4101,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8936d304b6a41bf4f8730a39142b8460, type: 2}
   spawnPoints:
   - {fileID: 8823339923595815400}
+  - {fileID: 1889737935}
+  - {fileID: 1840031891}
+  - {fileID: 271257382}
   setSkillManager: {fileID: 1268908630}
 --- !u!4 &1705623397
 Transform:
@@ -4573,6 +4581,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809382094}
   m_CullTransparentMesh: 1
+--- !u!4 &1840031891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3151022382477233586, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1851776778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4889,6 +4902,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887481310}
   m_CullTransparentMesh: 1
+--- !u!4 &1889737935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3930981479990889657, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2007102398
 GameObject:
   m_ObjectHideFlags: 0
