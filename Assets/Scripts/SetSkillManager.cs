@@ -13,9 +13,14 @@ public class SetSkillManager : MonoBehaviour
     public GameObject selectSkillUI; // 스킬 선택창
     public GameObject playerPref; // 플레이어(체력 컴포넌트)
     private LivingEntity player;
+    private PlayerHealth playerHealth;
+    private PlayerShooter playerShooter;
 
     public GhostSpawner ghostSpawner;
     public ItemSpawner itemSpawner;
+
+    public AmmoPack ammoPack;
+    public HealPack healPack;
 
     public List<string> playerSkillIndex; // 플레이어가 선택할 수 있는 남은 스킬들
     List<string> uiSkillIndex; // UI에 띄울 스킬들
@@ -29,6 +34,16 @@ public class SetSkillManager : MonoBehaviour
         playerSkillIndex = new List<string>(skillData.SkillList);
         player = playerPref.GetComponent<LivingEntity>();
 
+        playerHealth = playerPref.GetComponent<PlayerHealth>();
+        playerShooter = playerPref.GetComponent<PlayerShooter>();
+
+        // 플레이어 능력치 초기화
+        playerShooter.gun.gunData.damage = 50;
+
+        // 아이템 수치 초기화
+        ammoPack.ammo = 30;
+        healPack.heal = 50;
+
     }
 
     private void Update()
@@ -40,16 +55,12 @@ public class SetSkillManager : MonoBehaviour
     // 스킬 적용
     public void SetSkill(string skill)
     {
-        PlayerHealth playerHealth = playerPref.GetComponent<PlayerHealth>();
-        PlayerShooter playerShooter = playerPref.GetComponent<PlayerShooter>();
 
         switch (skill)
         {
-            case "총 공격력 증가":
-
-                // 총 공격력 20 증가
-                //playerShooter.gun.gunData.damage += 20;
-                playerSkillIndex.Remove("총 공격력 증가");
+            case "공격력 증가":
+                playerShooter.gun.gunData.damage += 20; // 플레이어 총 공격력 20 증가
+                playerSkillIndex.Remove("공격력 증가");
                 break;
 
             case "탄알 보급":
@@ -75,8 +86,9 @@ public class SetSkillManager : MonoBehaviour
                 break;
 
             case "아이템 효율 증가":
-
                 // 아이템 효율 20% 증가 코드
+                ammoPack.ammo = (int)(ammoPack.ammo * 1.2);
+                healPack.heal *= 1.2f;
                 playerSkillIndex.Remove("아이템 효율 증가");
                 break;
 

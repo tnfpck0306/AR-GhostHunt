@@ -23,11 +23,12 @@ public class GameManager : MonoBehaviour
     private static GameManager m_instance;
     public SetSkillManager setSkillManager;
 
-    public int kill = 0; // 게임의 킬 수
-
     private bool isChoice = false; // 스킬 선택 여부
     public bool isHealthRegen = false; // 체력 재생 스킬 활성화 여부
+
+    public int kill = 0; // 게임의 킬 수
     public int regenCount = 0; // 체력 재생을 위한 킬 수
+    public int getSkillKill = 10; // 플레이어가 스킬을 얻기 위해 필요한 킬 수
 
     public bool isGameOver { get; private set; } // 게임오버 여부
 
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
         if (setSkillManager.playerSkillIndex.Count != 0)
         {
             // 스킬 선택을 아직 안함 & 10킬 마다
-            if (kill > 0 && kill % 10 == 0 && !isChoice)
+            if (kill > 0 && kill % getSkillKill == 0 && !isChoice)
             {
                 // 스킬 선택창 UI 활성화
                 setSkillManager.SetActiveSkillUI();
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
             }
 
             // 스킬을 선택 & 1킬 후
-            if (kill % 10 == 1 && isChoice)
+            if (kill % getSkillKill == 1 && isChoice)
             {
                 isChoice = false;
             }

@@ -662,9 +662,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setSkillManager: {fileID: 1268908630}
-  kill: 0
   isHealthRegen: 0
+  kill: 0
   regenCount: 0
+  getSkillKill: 2
 --- !u!4 &326286233
 Transform:
   m_ObjectHideFlags: 0
@@ -842,7 +843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -30}
+  m_AnchoredPosition: {x: -80, y: -60}
   m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357684539
@@ -1158,16 +1159,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!4 &403406619 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3930981479990889657, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
-  m_PrefabInstance: {fileID: 8823339923595815396}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &409305248 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3151022382477233586, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
-  m_PrefabInstance: {fileID: 8823339923595815396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &416140692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,6 +2758,8 @@ MonoBehaviour:
   playerPref: {fileID: 1909084564869549624}
   ghostSpawner: {fileID: 1705623396}
   itemSpawner: {fileID: 1713334202}
+  ammoPack: {fileID: 2809183300544782604, guid: 6958c8c465966524bb21a41e6fd417d0, type: 3}
+  healPack: {fileID: -7534759337717930874, guid: 90b2f4711ef272949ae6be1ea16c9a3e, type: 3}
   playerSkillIndex: []
   healthText: {fileID: 357684539}
   isHealthRegen: 0
@@ -3327,11 +3320,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1522836365 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7679425612410040673, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
-  m_PrefabInstance: {fileID: 8823339923595815396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1529073090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4108,9 +4096,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8936d304b6a41bf4f8730a39142b8460, type: 2}
   spawnPoints:
   - {fileID: 8823339923595815400}
-  - {fileID: 403406619}
-  - {fileID: 409305248}
-  - {fileID: 1522836365}
   setSkillManager: {fileID: 1268908630}
 --- !u!4 &1705623397
 Transform:
