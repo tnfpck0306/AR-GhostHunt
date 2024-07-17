@@ -61,9 +61,6 @@ public class Ghost : LivingEntity
             startingHealth = killCount * 10;
             health = killCount * 10;
         }
-
-        // 5킬 마다 유령 속도 증가
-        speed = (killCount / 5) * 0.1f + speed;
     }
 
     private IEnumerator UpdatePath()

@@ -7,7 +7,7 @@ public class SkillData : ScriptableObject
 {
     public List<string> SkillList = new List<string>()
     {
-        "체력증가",
+        "공격력 증가",
         "1",
         "2",
         "3",

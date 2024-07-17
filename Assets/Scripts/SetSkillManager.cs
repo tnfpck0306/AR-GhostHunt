@@ -8,10 +8,12 @@ using UnityEngine.UI;
 public class SetSkillManager : MonoBehaviour
 {
     public Text[] skillText = new Text[3]; // 스킬 선택창의 스킬 텍스트
+    public Text skillExplaneText;
     public SkillData skillData; // 스킬 데이터
 
     public GameObject selectSkillUI; // 스킬 선택창
     public GameObject playerPref; // 플레이어(체력 컴포넌트)
+
     private LivingEntity player;
     private PlayerHealth playerHealth;
     private PlayerShooter playerShooter;
@@ -22,10 +24,12 @@ public class SetSkillManager : MonoBehaviour
     public AmmoPack ammoPack;
     public HealPack healPack;
 
+    // public Text healthText; // 체력 시각화 텍스트(테스트용)
+
     public List<string> playerSkillIndex; // 플레이어가 선택할 수 있는 남은 스킬들
     List<string> uiSkillIndex; // UI에 띄울 스킬들
 
-    public Text healthText; // 체력 시각화 텍스트(테스트용)
+    public float ghostDebuff = 1;
 
     public bool isHealthRegen = false; // 체력 회복 스킬 활성화 여부
 
@@ -44,11 +48,14 @@ public class SetSkillManager : MonoBehaviour
         ammoPack.ammo = 30;
         healPack.heal = 50;
 
+        // 유령 속도 감소 초기화
+        ghostDebuff = 1;
+
     }
 
     private void Update()
     {
-        healthText.text = player.health.ToString(); // (테스트용 코드)
+        // healthText.text = player.health.ToString(); // (테스트용 코드)
         
     }
 
@@ -86,22 +93,50 @@ public class SetSkillManager : MonoBehaviour
                 break;
 
             case "아이템 효율 증가":
-                // 아이템 효율 20% 증가 코드
-                ammoPack.ammo = (int)(ammoPack.ammo * 1.2);
-                healPack.heal *= 1.2f;
+                ammoPack.ammo = (int)(ammoPack.ammo * 1.2); // 탄알 아이템 효율 20% 증가
+                healPack.heal *= 1.2f; // 회복 아이템 효율 20% 증가
                 playerSkillIndex.Remove("아이템 효율 증가");
                 break;
 
             case "유령 속도 감소":
-
-                // 속도 감소 코드
+                ghostDebuff = 0.6f; // 유령 속도 40% 감소
                 playerSkillIndex.Remove("유령 속도 감소");
                 break;
+        }
+    }
 
-            case "유령 탐지기":
+    // 스킬 설명 Text
+    public void SkillExplaneText(string skill)
+    {
 
-                // 가장 가까운 유령을 찾는 코드
-                playerSkillIndex.Remove("유령 탐지기");
+        switch (skill)
+        {
+            case "공격력 증가":
+                skillExplaneText.text = "플레이어 공격력 20 증가";
+                break;
+
+            case "탄알 보급":
+                skillExplaneText.text = "5초마다 5씩 탄알 자동 보급";
+                break;
+
+            case "체력 증가":
+                skillExplaneText.text = "플레이어 최대체력 50 % 증가";
+                break;
+
+            case "체력 재생":
+                skillExplaneText.text = "유령 킬 당 4씩 플레이어 체력 회복";
+                break;
+
+            case "아이템 스폰시간 감소":
+                skillExplaneText.text = "탄알 및 회복 아이템 스폰시간 15 % 감소";
+                break;
+
+            case "아이템 효율 증가":
+                skillExplaneText.text = "탄알 및 회복 아이템 효율 20 % 증가";
+                break;
+
+            case "유령 속도 감소":
+                skillExplaneText.text = "유령 속도 40 % 감소";
                 break;
         }
     }

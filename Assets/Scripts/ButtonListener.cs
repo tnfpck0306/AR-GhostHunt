@@ -11,6 +11,8 @@ public class ButtonListener : MonoBehaviour
 
     public GameObject selectSkillUI;
 
+    private string prvText;
+
     // 사격 버튼 클릭시 총 발사
     public void OnButtonClickedShot()
     {
@@ -23,11 +25,21 @@ public class ButtonListener : MonoBehaviour
         gun.Reload();
     }
 
+    // 스킬 선택 버튼 클릭시
     public void OnButtonClickedSkill()
     {
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+        string clickSkill = clickObject.GetComponentInChildren<Text>().text;
 
-        skillManager.SetSkill(clickObject.GetComponentInChildren<Text>().text);
-        selectSkillUI.SetActive(false);
+        if (clickSkill == prvText)
+        {
+            skillManager.SetSkill(clickSkill);
+            selectSkillUI.SetActive(false);
+        }
+        else
+        {
+            skillManager.SkillExplaneText(clickSkill);
+            prvText = clickSkill;
+        }
     }
 }

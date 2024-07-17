@@ -8,15 +8,16 @@ using UnityEngine;
 public class GhostSpawner : MonoBehaviour
 {
     // 유령 프리팹 & 유령 데이터
-    // 0. 일반 유령 1. 갈색 유령
+    // 0.일반 유령  1.갈색 유령  2.뿔 유령  3.보스 유령
     public Ghost[] ghostPrefab;
     public GhostData[] ghostData;
 
     public Transform[] spawnPoints; // 유령을 소환할 위치
 
-    private List<Ghost> ghosts = new List<Ghost>(); // 생성된 유령을 담을 리스트
-
     public SetSkillManager setSkillManager;
+
+    private List<Ghost> ghosts = new List<Ghost>(); // 생성된 유령을 담을 리스트
+    private int killCount;
 
     private void Update()
     {
@@ -41,7 +42,7 @@ public class GhostSpawner : MonoBehaviour
          * 20킬 이후 3킬마다 뿔유령(체력 50, 공격력 20, 속도 0.5, 블링크 효과) 등장
          * 25킬마다 보스 유령(체력 10 * 플레이어 킬 수, 공격력 150, 속도 0.5) 등장
         */
-        int killCount = GameManager.instance.kill; // 킬 수
+        killCount = GameManager.instance.kill; // 킬 수
 
         if (ghosts.Count < (killCount / 10) + 1)
         {
@@ -72,8 +73,14 @@ public class GhostSpawner : MonoBehaviour
         // 유령 생성
         Ghost ghost = Instantiate(ghostPrefab[num], spawnPoint.position, spawnPoint.rotation);
 
-        // 유령 능력치 부여 및 리스트에 추가
+        // 유령 능력치 부여
         ghost.Setup(ghostData[num]);
+
+        // 5킬 마다 유령 속도 증가 및 유령 속도 감소 스킬
+        ghost.speed = (killCount / 5) * 0.1f + ghost.speed;
+        ghost.speed *= setSkillManager.ghostDebuff;
+
+        // 리스트에 추가
         ghosts.Add(ghost);
 
         // 유령 사망시 -> 리스트에서 제거, 유령파괴, 킬 수 상승, 체력 재생(스킬 활성화 시)
