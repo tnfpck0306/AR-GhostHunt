@@ -8,21 +8,21 @@ using UnityEngine.UI;
 public class SetSkillManager : MonoBehaviour
 {
     public Text[] skillText = new Text[3]; // 스킬 선택창의 스킬 텍스트
-    public Text skillExplaneText;
+    public Text skillExplaneText; // 스킬 설명 텍스트
     public SkillData skillData; // 스킬 데이터
 
     public GameObject selectSkillUI; // 스킬 선택창
-    public GameObject playerPref; // 플레이어(체력 컴포넌트)
+    public GameObject playerPref;
 
-    private LivingEntity player;
-    private PlayerHealth playerHealth;
-    private PlayerShooter playerShooter;
+    private LivingEntity player; // 플레이어
+    private PlayerHealth playerHealth; // 플레이어 체력
+    private PlayerShooter playerShooter; // 플레이어 총
 
-    public GhostSpawner ghostSpawner;
-    public ItemSpawner itemSpawner;
+    public GhostSpawner ghostSpawner; // 유령 생성기
+    public ItemSpawner itemSpawner; // 아이템 생성기
 
-    public AmmoPack ammoPack;
-    public HealPack healPack;
+    public AmmoPack ammoPack; // 탄알 아이템
+    public HealPack healPack; // 회복 아이템
 
     // public Text healthText; // 체력 시각화 텍스트(테스트용)
 

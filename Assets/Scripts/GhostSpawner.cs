@@ -22,7 +22,7 @@ public class GhostSpawner : MonoBehaviour
     private void Update()
     {
         // 메인메뉴 & 설정메뉴 화면에서는 생성하지 않음
-        if (UIManager.instance.mainMenuUI.activeSelf && UIManager.instance.settingUI.activeSelf)
+        if (UIManager.instance.mainMenuUI.activeSelf || UIManager.instance.settingUI.activeSelf)
         {
             return;
         }

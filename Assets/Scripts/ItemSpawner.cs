@@ -31,8 +31,15 @@ public class ItemSpawner : MonoBehaviour
 
     private void Update()
     {
+        // 메인메뉴 & 설정메뉴 화면에서는 생성하지 않음
+        if (UIManager.instance.mainMenuUI.activeSelf || UIManager.instance.settingUI.activeSelf)
+        {
+            lastSpawnTime = Time.time;
+            return;
+        }
+
         // 시간이 생성주기를 넘김 && 플레이어가 존재
-        if(Time.time >= timeInterval + lastSpawnTime && playerTransform != null)
+        if (Time.time >= timeInterval + lastSpawnTime && playerTransform != null)
         {
             // 마지막 생성 시간 갱신
             lastSpawnTime = Time.time;
