@@ -94,9 +94,9 @@ public class Gun : MonoBehaviour
             //레이가 충돌한 위치 저장
             hitPosition = hit.point;
         }
+        // 레이가 다른 물체와 충돌하지 않았다면 
         else
         {
-            // 레이가 다른 물체와 충돌하지 않았다면 
             // 탄알이 최대 사정거리까지 날아갔을 때의 위치를 충돌 위치로 사용
             hitPosition = fireTransform.position + fireTransform.forward * fireDistance;
         }

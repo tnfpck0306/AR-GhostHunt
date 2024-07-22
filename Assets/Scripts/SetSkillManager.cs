@@ -112,7 +112,7 @@ public class SetSkillManager : MonoBehaviour
         switch (skill)
         {
             case "공격력 증가":
-                skillExplaneText.text = "플레이어 공격력 20 증가";
+                skillExplaneText.text = "플레이어 공격력 40% 증가";
                 break;
 
             case "탄알 보급":

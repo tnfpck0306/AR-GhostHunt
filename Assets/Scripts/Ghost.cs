@@ -112,6 +112,12 @@ public class Ghost : LivingEntity
         base.OnDamage(damage, hitPoint, hitNormal);
     }
 
+    private IEnumerator HitEffect()
+    {
+        // ÇÇ°Ý½Ã
+        yield return new WaitForSeconds(0.1f);
+    }
+
     private IEnumerator BlinkEffect()
     {
         while (!dead)
