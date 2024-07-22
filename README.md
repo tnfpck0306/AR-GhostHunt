@@ -33,7 +33,7 @@ and players can challenge their best records with items and quickness.
 - If you get close to the item, you can get it, and the ammunition box can replenish the entire ammunition, and the health box can restore the player health
 - You can check the highest score among the results of the game
 
-## Level Design(Developing)
+## Level Design
 - Ghost (Health 100, Damage 20, Speed 0.5)
 - Brown Ghost (Health 150, Damage 40, Speed 0.3)
 - Horn Ghost (Health 50, Damage 20, Speed 0.5, BLINK effect)
@@ -57,7 +57,6 @@ Select a skill for every 10 kills of the player
 5. Item Spawn Time Reduction by 15% (25 to 30) -> (21.25 to 25.5)
 6. 20% increase item efficiency
 7. Reduced ghost speed
-8. Display nearest ghost
 
 ## How to use it
 *If you run the app with your phone camera facing the front at the user's eye level in a wide place,   
