@@ -18,7 +18,7 @@ public class GhostSpawner : MonoBehaviour
 
     private List<Ghost> ghosts = new List<Ghost>(); // 생성된 유령을 담을 리스트
     private int killCount;
-
+    private float createInterval = 0;
     private void Update()
     {
         // 메인메뉴 & 설정메뉴 화면에서는 생성하지 않음
@@ -44,7 +44,7 @@ public class GhostSpawner : MonoBehaviour
         */
         killCount = GameManager.instance.kill; // 킬 수
 
-        if (ghosts.Count < (killCount / 10) + 1)
+        if (ghosts.Count < (killCount / 10) + 1 && Time.time > createInterval + 1f)
         {
             CreateGhost(0);
 
@@ -70,6 +70,9 @@ public class GhostSpawner : MonoBehaviour
         // Spawn Points에서 랜덤으로 유령을 생성
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
+        // 스폰 소리 재생
+        spawnPoint.GetComponent<AudioSource>().Play();
+
         // 유령 생성
         Ghost ghost = Instantiate(ghostPrefab[num], spawnPoint.position, spawnPoint.rotation);
 
@@ -87,7 +90,8 @@ public class GhostSpawner : MonoBehaviour
         ghost.onDeath += () => ghosts.Remove(ghost);
         ghost.onDeath += () => Destroy(ghost.gameObject, 0.2f);
         ghost.onDeath += () => GameManager.instance.AddKill(1);
-        if(setSkillManager.isHealthRegen)
+        ghost.onDeath += () => createInterval = Time.time;
+        if (setSkillManager.isHealthRegen)
             ghost.onDeath += () => setSkillManager.SkillHealthRegen();
 
         // 유령이 플레이어와 충돌시 -> 리스트에서 제거, 유령파괴, 충돌효과

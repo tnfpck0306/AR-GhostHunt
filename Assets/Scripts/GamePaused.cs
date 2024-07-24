@@ -8,10 +8,11 @@ public class GamePaused : MonoBehaviour
 {
     public static bool gameIsPaused = false; // 게임 멈춤 여부
     public GameObject selectSkillUI; // 스킬 선택창 UI
+    public GameObject pauseUI; // 게임 일시 정지 UI
 
     private void Update()
     {
-        if (selectSkillUI.activeSelf != gameIsPaused)
+        if ((selectSkillUI.activeSelf || pauseUI.activeSelf) != gameIsPaused)
             if(!gameIsPaused) // 스킬 선택창이 켜져있는데 게임이 안 멈춰있다면
                 Pause(); // 멈춤
             

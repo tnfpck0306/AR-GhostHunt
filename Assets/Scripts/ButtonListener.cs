@@ -10,6 +10,7 @@ public class ButtonListener : MonoBehaviour
     public SetSkillManager skillManager;
 
     public GameObject selectSkillUI;
+    public GameObject pauseUI;
 
     private string prvText;
 
@@ -23,6 +24,18 @@ public class ButtonListener : MonoBehaviour
     public void OnButtonClickedReload()
     {
         gun.Reload();
+    }
+
+    // 정지 버튼 클릭시 총 장전
+    public void OnButtonClickedPause()
+    {
+        pauseUI.SetActive(true);
+    }
+
+    // 정지 버튼 클릭시 총 장전
+    public void OnButtonClickedReturn()
+    {
+        pauseUI.SetActive(false);
     }
 
     // 스킬 선택 버튼 클릭시

@@ -15,6 +15,10 @@ public class Ghost : LivingEntity
     public float updateInterval = 0.04f; // 코루틴 처리 대기시간
     public int type; // 유령의 종류
     public GameObject[] skin; // 블링크 효과가 적용되는 유령의 부위
+    public Renderer meshRenderer;
+
+    private GameObject audioManager; // 오디오 매니저
+    private AudioSource audioSource; // 피격 소리
 
     private bool hasTarget
     {
@@ -45,6 +49,10 @@ public class Ghost : LivingEntity
 
     private void Start()
     {
+        // 오디오 매니저에서 소리 불러오기
+        audioManager = GameObject.Find("Audio Manager");
+        audioSource = audioManager.GetComponent<AudioSource>();
+
         int killCount = GameManager.instance.kill; // 플레이어의 킬 수
 
         StartCoroutine(UpdatePath());
@@ -108,14 +116,23 @@ public class Ghost : LivingEntity
 
     public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
     {
+        // 피격 소리 재생
+        audioSource.Play();
+        StartCoroutine(HitEffect());
         // LivingEntity의 OnDamage()를 실행하여 대미지 적용
         base.OnDamage(damage, hitPoint, hitNormal);
     }
 
     private IEnumerator HitEffect()
     {
-        // 피격시
+        Color basicColor = meshRenderer.material.color; // 유령이 가지고 있는 기본 색
+        Color hitColor = new Color32(180, 50, 50, 255); // 피격시 색
+
+        meshRenderer.material.color = hitColor;
+
         yield return new WaitForSeconds(0.1f);
+
+        meshRenderer.material.color = basicColor;
     }
 
     private IEnumerator BlinkEffect()
