@@ -37,6 +37,14 @@ public class UIManager : MonoBehaviour
     // 탄알 텍스트 갱신
     public void UpdateAmmoText(int magAmmo, int remainAmmo)
     {
+        if (remainAmmo < 50)
+        {
+            Color warning = new Color32(200, 50, 50, 255);
+            ammoText.color = warning;
+        }
+        else
+            ammoText.color = Color.white;
+
         ammoText.text = magAmmo + " / " + remainAmmo;
     }
 

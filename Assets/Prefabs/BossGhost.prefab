@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: -710035175576860852}
   - component: {fileID: 4946335995659474459}
   - component: {fileID: 7001803082207754221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BossGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
