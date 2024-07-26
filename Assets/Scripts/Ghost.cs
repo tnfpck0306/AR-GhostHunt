@@ -18,7 +18,7 @@ public class Ghost : LivingEntity
     public Renderer meshRenderer;
 
     private GameObject audioManager; // 오디오 매니저
-    private AudioSource audioSource; // 피격 소리
+    private AudioSource audioSource; // 오디오 매니저의 오디오 소스(피격사운드)
 
     private bool hasTarget
     {

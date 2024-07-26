@@ -8,6 +8,25 @@ public class PlayerHealth : LivingEntity
 {
     public Slider healthSlider; // 체력을 표시할 UI 슬라이더
 
+    private AudioSource audioSource; // 아이템 습득 사운드
+    private GameObject audioManager; // 오디오 매니저
+    private AudioSource checkvolume; // 오디오 매니저의 소스(불륨 조절 확인)
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        // 오디오 매니저에서 소리 불러오기
+        audioManager = GameObject.Find("Audio Manager");
+        checkvolume = audioManager.GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        // 아이템 습득 사운드 조절(SFX 사운드의 두배)
+        audioSource.volume = checkvolume.volume * 2;
+    }
+
     protected override void OnEnable()
     {
         // LivingEnitiy의 OnEnable() 실행
@@ -48,6 +67,7 @@ public class PlayerHealth : LivingEntity
 
             if(item != null)
             {
+                audioSource.Play();
                 // 아이템 사용
                 item.Use(gameObject);
             }

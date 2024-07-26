@@ -15,10 +15,12 @@ public class GhostSpawner : MonoBehaviour
     public Transform[] spawnPoints; // 유령을 소환할 위치
 
     public SetSkillManager setSkillManager;
+    public AudioSource setAudioManager;
 
     private List<Ghost> ghosts = new List<Ghost>(); // 생성된 유령을 담을 리스트
     private int killCount;
     private float createInterval = 0;
+
     private void Update()
     {
         // 메인메뉴 & 설정메뉴 화면에서는 생성하지 않음
@@ -71,7 +73,9 @@ public class GhostSpawner : MonoBehaviour
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         // 스폰 소리 재생
-        spawnPoint.GetComponent<AudioSource>().Play();
+        AudioSource spawnSound = spawnPoint.GetComponent<AudioSource>();
+        spawnSound.volume = setAudioManager.volume * 2;
+        spawnSound.Play();
 
         // 유령 생성
         Ghost ghost = Instantiate(ghostPrefab[num], spawnPoint.position, spawnPoint.rotation);
