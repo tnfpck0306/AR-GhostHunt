@@ -33,18 +33,22 @@ and players can challenge their best records with items and quickness.
 - If you get close to the item, you can get it, and the ammunition box can replenish the entire ammunition, and the health box can restore the player health
 - You can check the highest score among the results of the game
 
+**Player Skill** | **Setting**
+  :-------------------------:|:-------------------------:
+  A | B
+
 ## Level Design
 - Ghost (Health 100, Damage 20, Speed 0.5)
 - Brown Ghost (Health 150, Damage 40, Speed 0.3)
 - Horn Ghost (Health 50, Damage 20, Speed 0.5, BLINK effect)
 - Boss Ghost (Health 10 * player kill count, Damage instant kill, Speed 0.5
 
-Basically, ghosts appear one by one.  
-The speed of all ghosts per 5 kills increases by 0.1.  
-1 increase in the number of ghosts per 10 kills [over 10 kill -> 2 ghosts / over 20 kill -> 3 ghosts]  
-Additional brown ghosts appear every 5 kills.  
-After 20 kills, one out of three appeared as a horn ghost.  
-Boss ghost appears every 25 kills.  
+1. Basically, ghosts appear one by one.  
+2. The speed of all ghosts per 5 kills increases by 0.1.  
+3. 1 increase in the number of ghosts per 10 kills [over 10 kill -> 2 ghosts / over 20 kill -> 3 ghosts]  
+4. Brown ghosts appear every 5 kills.  
+5. Horned ghost appears to be one of three after 20 kills.  
+6. Boss ghost appears every 25 kills.  
 
 <br/><br/>
 - Player (Health 100, Damage 50)
