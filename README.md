@@ -35,9 +35,14 @@ and players can challenge their best records with items and quickness.
 
 **Player Skill** | **Setting**
   :-------------------------:|:-------------------------:
-  A | B
+  <img width = 220px src=https://github.com/user-attachments/assets/42d1ddf2-1ecc-41df-a684-49cfa94637ed> | <img width = 250px src=https://github.com/user-attachments/assets/20975d95-6c61-47fc-b9ff-fd650fad121c>
+
+  - The player can select one of three randomly determined skills. (If you click 1, you can see the detailed description of the selected skill, and if you click 2, you can select the skill.)
+  - You can control the background sound and SFX in the setting window after you pause the current game. You can also play again or return to the main menu.
 
 ## Level Design
+<img src=https://github.com/user-attachments/assets/d1920846-a404-4550-b6a7-28c091c27d7a>
+
 - Ghost (Health 100, Damage 20, Speed 0.5)
 - Brown Ghost (Health 150, Damage 40, Speed 0.3)
 - Horn Ghost (Health 50, Damage 20, Speed 0.5, BLINK effect)
@@ -63,8 +68,9 @@ Select a skill for every 10 kills of the player
 7. Reduced ghost speed
 
 ## How to use it
-*If you run the app with your phone camera facing the front at the user's eye level in a wide place,   
-you can play the game in a more appropriate environment.*
+*Running the app face-to-face with the phone camera at the user's eye level   
+in a spacious place will allow you to play in a more appropriate environment.   
+You can also hear spatial sounds better when you wear earphones and help you play better.*
 
 ## Environment
 Unity `2022.3.4f1`   
