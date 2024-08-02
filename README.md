@@ -3,7 +3,7 @@
 -*Demo video(Youtube) : https://youtu.be/NGU1wZcqkcI*
 
 <img height = 500px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/d81157b2-c85e-4fdf-834d-178a5cc2f7fe>
-<img height = 500px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/6743b4b1-c0cd-47ad-9355-52c49c42a3c9>
+<img height = 500px src=https://github.com/user-attachments/assets/5f0906e7-b40b-48dd-8f77-91f244d9dedf>
 
 AR Ghost Hunt, an AR shooting game that can be enjoyed in a wide place.   
 You can use the gun on your phone screen to catch ghosts approaching the player.   
@@ -22,7 +22,7 @@ and players can challenge their best records with items and quickness.
 ## Key Feature
 **Ghost** | **Gun shot** | **Ammo**
 :-------------------------:|:-------------------------:|:-------------------------:
-<img width = 250px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/c9a4c09f-dc51-4e70-89dc-50de4981ab22> | <img width = 150px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/97e83cc0-49ce-402f-8549-e0ea4340cba5> | <img width = 200px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/754339c4-fec1-4190-a1ce-e0dfbdffdb81>
+<img width = 250px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/c9a4c09f-dc51-4e70-89dc-50de4981ab22> | <img width = 200px src=https://github.com/user-attachments/assets/ed23fc32-3b69-463f-bf22-efaa73117374> | <img width = 200px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/754339c4-fec1-4190-a1ce-e0dfbdffdb81>
 **Health Bar** | **Item** | **High Score**
 <img width = 150px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/460c93b3-df2f-4908-90a8-1ae19e364448> | <img width = 200px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/82596d8c-d803-44f1-8e44-37d4b6c9b5f5> | <img width = 200px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/07f5a199-7d4b-4f15-8a2d-4540394f5f6b>
 
