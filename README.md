@@ -27,7 +27,7 @@ and players can challenge their best records with items and quickness.
 <img width = 150px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/460c93b3-df2f-4908-90a8-1ae19e364448> | <img width = 200px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/82596d8c-d803-44f1-8e44-37d4b6c9b5f5> | <img width = 200px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/07f5a199-7d4b-4f15-8a2d-4540394f5f6b>
 
 - Ghosts appear around players to track them down
-- Ray cast and Reinerenderer show shooting trajectory
+- Raycast and Line Renderer show the shooting trajectory, and the ghost has a hit effect
 - You can check in real time about the remaining ammunition in the magazine and the total ammunition you have
 - You can check the amount of health loss caused by ghosts
 - If you get close to the item, you can get it, and the ammunition box can replenish the entire ammunition, and the health box can restore the player health
