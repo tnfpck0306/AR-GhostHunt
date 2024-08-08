@@ -163,6 +163,7 @@ public class SetSkillManager : MonoBehaviour
     public void SetActiveSkillUI()
     {
         uiSkillIndex = new List<string>(playerSkillIndex);
+        skillExplaneText.text = " ";
 
         // 스킬 3가지 선택창 UI에 띄우기
         for (int index = 0; index < skillText.Length; index++)
