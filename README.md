@@ -1,6 +1,6 @@
 # AR-GhostHunt
 
--*Demo video(Youtube) : https://youtu.be/NGU1wZcqkcI*
+-*Demo video(Youtube) : https://youtu.be/mscxQxaegQ0*
 
 <img height = 500px src=https://github.com/tnfpck0306/AR-GhostHunt/assets/76057758/d81157b2-c85e-4fdf-834d-178a5cc2f7fe>
 <img height = 500px src=https://github.com/user-attachments/assets/5f0906e7-b40b-48dd-8f77-91f244d9dedf>
