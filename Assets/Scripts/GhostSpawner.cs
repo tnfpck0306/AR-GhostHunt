@@ -48,22 +48,23 @@ public class GhostSpawner : MonoBehaviour
 
         if (ghosts.Count < (killCount / 10) + 1 && Time.time > createInterval + 1f)
         {
-            CreateGhost(0);
-
-            if (killCount > 0 && killCount % 5 == 0)
-            {
-                CreateGhost(1);
-            }
-
-            if(killCount > 20 && (killCount - 20) % 3 == 0)
-            {
-                CreateGhost(2);
-            }
-
             if (killCount > 0 && killCount % 25 == 0)
             {
                 CreateGhost(3);
             }
+
+            else if (killCount > 0 && killCount % 5 == 0)
+            {
+                CreateGhost(1);
+            }
+
+            else if(killCount > 20 && (killCount - 20) % 3 == 0)
+            {
+                CreateGhost(2);
+            }
+
+            else
+                CreateGhost(0);
         }
     }
 
@@ -84,7 +85,11 @@ public class GhostSpawner : MonoBehaviour
         ghost.Setup(ghostData[num]);
 
         // 5킬 마다 유령 속도 증가 및 유령 속도 감소 스킬
-        ghost.speed = (killCount / 5) * 0.1f + ghost.speed;
+        float addSpeed = (killCount / 5) * 0.1f;
+        if (addSpeed > 0.4f)
+            addSpeed = 0.4f;
+
+        ghost.speed = addSpeed + ghost.speed;
         ghost.speed *= setSkillManager.ghostDebuff;
 
         // 리스트에 추가
