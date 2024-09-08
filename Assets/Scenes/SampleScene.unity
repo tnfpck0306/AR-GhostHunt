@@ -3035,7 +3035,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 8235489}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 1
   m_Options:
     m_Options:
     - m_Text: Korean
@@ -3044,7 +3044,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1298454193}
+        m_TargetAssemblyTypeName: ButtonListener, Assembly-CSharp
+        m_MethodName: onSettingUILanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &568692490
 MonoBehaviour:
@@ -3786,7 +3798,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 657789471}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 1
   m_Options:
     m_Options:
     - m_Text: Korean
@@ -3795,7 +3807,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1298454193}
+        m_TargetAssemblyTypeName: ButtonListener, Assembly-CSharp
+        m_MethodName: onPauseUILanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &742422089
 MonoBehaviour:
@@ -4960,11 +4984,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2974360135462138768, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
   m_PrefabInstance: {fileID: 8823339923595815396}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1040480857 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3930981479990889657, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
-  m_PrefabInstance: {fileID: 8823339923595815396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1040480858
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5061,6 +5080,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1040480859 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3930981479990889657, guid: 84cdb7608956b884eaa3dd9ff0284f42, type: 3}
+  m_PrefabInstance: {fileID: 8823339923595815396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1040686045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7253694630188403463, guid: b2d312467a318244b821d39c9e560ae1, type: 3}
@@ -5821,6 +5845,7 @@ MonoBehaviour:
   - {fileID: 1235782292}
   skillExplaneText: {fileID: 976729229}
   skillData: {fileID: 11400000, guid: 5e0743755360c70468e2060d3287739e, type: 2}
+  languageDrop: {fileID: 568692489}
   selectSkillUI: {fileID: 964960307}
   playerPref: {fileID: 1909084564869549624}
   ghostSpawner: {fileID: 1705623396}
@@ -5828,6 +5853,7 @@ MonoBehaviour:
   ammoPack: {fileID: 2809183300544782604, guid: 6958c8c465966524bb21a41e6fd417d0, type: 3}
   healPack: {fileID: -7534759337717930874, guid: 90b2f4711ef272949ae6be1ea16c9a3e, type: 3}
   playerSkillIndex: []
+  language: 0
   ghostDebuff: 1
   isHealthRegen: 0
 --- !u!4 &1268908631
@@ -5958,6 +5984,8 @@ MonoBehaviour:
   skillManager: {fileID: 1268908630}
   selectSkillUI: {fileID: 964960307}
   pauseUI: {fileID: 1781893555}
+  settingUIDd: {fileID: 568692489}
+  pauseUIDd: {fileID: 742422088}
 --- !u!4 &1298454194
 Transform:
   m_ObjectHideFlags: 0
@@ -8349,7 +8377,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8936d304b6a41bf4f8730a39142b8460, type: 2}
   spawnPoints:
   - {fileID: 8823339923595815402}
-  - {fileID: 1040480857}
+  - {fileID: 1040480859}
   - {fileID: 1931026862}
   - {fileID: 1614739392}
   - {fileID: 2062023916}

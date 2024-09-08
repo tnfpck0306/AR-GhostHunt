@@ -12,6 +12,9 @@ public class ButtonListener : MonoBehaviour
     public GameObject selectSkillUI;
     public GameObject pauseUI;
 
+    public Dropdown settingUIDd;
+    public Dropdown pauseUIDd;
+
     private string prvText;
 
     // 사격 버튼 클릭시 총 발사
@@ -54,5 +57,17 @@ public class ButtonListener : MonoBehaviour
             skillManager.SkillExplaneText(clickSkill);
             prvText = clickSkill;
         }
+    }
+
+    public void onSettingUILanguage()
+    {
+        int languageValue = settingUIDd.value;
+        pauseUIDd.value = languageValue;
+    }
+
+    public void onPauseUILanguage()
+    {
+        int languageValue = pauseUIDd.value;
+        settingUIDd.value = languageValue;
     }
 }
